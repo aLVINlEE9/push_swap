@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:15:38 by seungsle          #+#    #+#             */
-/*   Updated: 2021/09/13 21:08:25 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/09/13 21:33:28 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	print_error(char *str)
 {
 	write(1, "\n", 1);
 	write(2, str, ft_strlen(str));
-	return (FALSE);
+	exit();
 }
 
 void	set_node(t_dlist *node, int	*num_ptr)
@@ -28,7 +28,7 @@ int vaild_arg(int argc, char **argv, t_dlist *A_node)
 {
 	int	i;
 	int	num;
-	int	*num_ptr;
+	long long	*num_ptr;
 
 	i = 0;
 	if (argc !=2)
@@ -46,9 +46,16 @@ int vaild_arg(int argc, char **argv, t_dlist *A_node)
 	}
 }
 
-int	parsing_num(char **argv, int index, int	*num_ptr)
+int	valid_int(int *num_ptr)
+{
+	if ()
+}
+
+int	parsing_num(char **argv, int index, long long	*num_ptr)
 {
 	int	i;
+	int	len;
+	char	*num_str;
 
 	i = index;
 	while (argv[1][index++])
@@ -56,6 +63,14 @@ int	parsing_num(char **argv, int index, int	*num_ptr)
 		if (32 != argv[1][index])
 			continue;
 	}
+	len = index - i;
+	numptr = (long long *)malloc(sizeof(long long));
+	num_str = (char *)malloc(sizeof(char) * (len + 1));
+	num_ptr = ft_atoi(num_str);
+	if (valid_int(int	*num_ptr))
+		print_error("[ERROR]scope error : not integer!\n")
+	free(num_str);
+	return (len);
 }
 
 int main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:15:38 by seungsle          #+#    #+#             */
-/*   Updated: 2021/09/13 21:33:28 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/09/14 13:35:33 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	print_error(char *str)
 {
 	write(1, "\n", 1);
 	write(2, str, ft_strlen(str));
-	exit();
+	exit(EXIT_FAILURE);
 }
 
 void	set_node(t_dlist *node, int	*num_ptr)
@@ -35,7 +35,7 @@ int vaild_arg(int argc, char **argv, t_dlist *A_node)
 		return (print_error("[ERROR]bad arguments : not one argument!\n"));
 	while (argv[1][i++])
 	{
-		if (32 != argv[1][i])
+		if (32 == argv[1][i])
 			continue;
 		if (!(48 <= argv[1][i] && argv[1][i] <= 57))
 			return (print_error("[ERROR]bad arguments : not number!\n"));
@@ -46,9 +46,15 @@ int vaild_arg(int argc, char **argv, t_dlist *A_node)
 	}
 }
 
-int	valid_int(int *num_ptr)
+int	valid_int(long long *num_ptr)
 {
-	if ()
+	int	num;
+
+	num = *num_ptr;
+	if (num < INT_MIN || num > INT_MAX)
+		return (FALSE);
+	else
+		return (TRUE);
 }
 
 int	parsing_num(char **argv, int index, long long	*num_ptr)
@@ -60,15 +66,17 @@ int	parsing_num(char **argv, int index, long long	*num_ptr)
 	i = index;
 	while (argv[1][index++])
 	{
-		if (32 != argv[1][index])
-			continue;
+		if (32 == argv[1][index])
+			break ;
+		else
+			continue ;
 	}
 	len = index - i;
-	numptr = (long long *)malloc(sizeof(long long));
+	num_ptr = (long long *)malloc(sizeof(long long));
 	num_str = (char *)malloc(sizeof(char) * (len + 1));
-	num_ptr = ft_atoi(num_str);
-	if (valid_int(int	*num_ptr))
-		print_error("[ERROR]scope error : not integer!\n")
+	*num_ptr = ft_atoi(num_str);
+	if (valid_int(num_ptr))
+		print_error("[ERROR]out of scope : not integer scope!\n")
 	free(num_str);
 	return (len);
 }

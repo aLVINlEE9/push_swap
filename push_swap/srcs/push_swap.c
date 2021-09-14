@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:15:38 by seungsle          #+#    #+#             */
-/*   Updated: 2021/09/14 13:43:16 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/09/14 16:46:02 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,20 @@ int	print_error(char *str)
 	exit(EXIT_FAILURE);
 }
 
-void	create_node(t_dlist *node, int *num_ptr)
+void	create_node(t_dlist *head)
 {
+	t_dlist *node;
+
 	node = (t_dlist *)malloc(sizeof(t_list));
+	if (!node)
+		return (erint_error("[ERROR]malloc error : malloc doesn't works\n"));
 	if (!node->pre_node)
-		node
+		node->pre_node = head;
+}
+
+void append_node(t_dlist *head, int *num_ptr)
+{
+	t_dlist *node;
 }
 
 int vaild_arg(int argc, char **argv, t_dlist *A_node)
@@ -35,6 +44,7 @@ int vaild_arg(int argc, char **argv, t_dlist *A_node)
 	i = 0;
 	if (argc !=2)
 		return (print_error("[ERROR]bad arguments : not one argument!\n"));
+	create_node(A_node);
 	while (argv[1][i++])
 	{
 		if (32 == argv[1][i])
@@ -43,7 +53,7 @@ int vaild_arg(int argc, char **argv, t_dlist *A_node)
 			return (print_error("[ERROR]bad arguments : not number!\n"));
 		else
 			i += parsing_num(argv[1], i, num_ptr);
-		set_node(A_node, num_ptr);
+		append_node(A_node, num_ptr)
 		free(num_ptr);
 	}
 }
@@ -76,9 +86,11 @@ int	parsing_num(char **argv, int index, long long	*num_ptr)
 	len = index - i;
 	num_ptr = (long long *)malloc(sizeof(long long));
 	num_str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!num_ptr || !num_str)
+		return (print_error("[ERROR]malloc error : malloc doesn't works\n"));
 	*num_ptr = ft_atoi(num_str);
 	if (valid_int(num_ptr))
-		print_error("[ERROR]out of scope : not integer scope!\n")
+		return (print_error("[ERROR]out of scope : not integer scope!\n"));
 	free(num_str);
 	return (len);
 }

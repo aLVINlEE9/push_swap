@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:15:38 by seungsle          #+#    #+#             */
-/*   Updated: 2021/09/14 16:46:02 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/09/14 16:49:27 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	print_error(char *str)
 	exit(EXIT_FAILURE);
 }
 
-void	create_node(t_dlist *head)
+void	create_node(t_dlist **head)
 {
 	t_dlist *node;
 
@@ -27,7 +27,7 @@ void	create_node(t_dlist *head)
 	if (!node)
 		return (erint_error("[ERROR]malloc error : malloc doesn't works\n"));
 	if (!node->pre_node)
-		node->pre_node = head;
+		node->pre_node = (*head);
 }
 
 void append_node(t_dlist *head, int *num_ptr)
@@ -35,7 +35,7 @@ void append_node(t_dlist *head, int *num_ptr)
 	t_dlist *node;
 }
 
-int vaild_arg(int argc, char **argv, t_dlist *A_node)
+int vaild_arg(int argc, char **argv, t_dlist **A_node)
 {
 	int	i;
 	int	num;
@@ -97,8 +97,8 @@ int	parsing_num(char **argv, int index, long long	*num_ptr)
 
 int main(int argc, char **argv)
 {
-	t_dlist	*A_node;
-	t_dlist	*B_node;
+	t_dlist	**A_node;
+	t_dlist	**B_node;
 
 	if (!valid_arg(argc, argv, A_node))
 		return (0);

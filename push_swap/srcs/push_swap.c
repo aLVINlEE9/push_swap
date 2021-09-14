@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:15:38 by seungsle          #+#    #+#             */
-/*   Updated: 2021/09/14 13:35:33 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/09/14 13:43:16 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ int	print_error(char *str)
 	exit(EXIT_FAILURE);
 }
 
-void	set_node(t_dlist *node, int	*num_ptr)
+void	create_node(t_dlist *node, int *num_ptr)
 {
-	
+	node = (t_dlist *)malloc(sizeof(t_list));
+	if (!node->pre_node)
+		node
 }
 
 int vaild_arg(int argc, char **argv, t_dlist *A_node)

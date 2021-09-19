@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:15:38 by seungsle          #+#    #+#             */
-/*   Updated: 2021/09/14 16:49:27 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/09/19 18:36:29 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	create_node(t_dlist **head)
 
 	node = (t_dlist *)malloc(sizeof(t_list));
 	if (!node)
-		return (erint_error("[ERROR]malloc error : malloc doesn't works\n"));
+		return (erint_error("[ERROR]allocation error : malloc doesn't works\n"));
 	if (!node->pre_node)
 		node->pre_node = (*head);
 }
@@ -35,7 +35,7 @@ void append_node(t_dlist *head, int *num_ptr)
 	t_dlist *node;
 }
 
-int vaild_arg(int argc, char **argv, t_dlist **A_node)
+void vaild_arg(int argc, char **argv, t_dlist **A_node)
 {
 	int	i;
 	int	num;
@@ -49,7 +49,7 @@ int vaild_arg(int argc, char **argv, t_dlist **A_node)
 	{
 		if (32 == argv[1][i])
 			continue;
-		if (!(48 <= argv[1][i] && argv[1][i] <= 57))
+		if (!(48 <= argv[1][i] && argv[1][i] <= 57) || !(argv[1][i] == 45))
 			return (print_error("[ERROR]bad arguments : not number!\n"));
 		else
 			i += parsing_num(argv[1], i, num_ptr);
@@ -58,11 +58,9 @@ int vaild_arg(int argc, char **argv, t_dlist **A_node)
 	}
 }
 
-int	valid_int(long long *num_ptr)
+int	valid_int(long long *num_ptr, char **argv, int index)
 {
-	int	num;
-
-	num = *num_ptr;
+	*num_ptr = ft_atoi(argv[1][index]);
 	if (num < INT_MIN || num > INT_MAX)
 		return (FALSE);
 	else
@@ -71,27 +69,13 @@ int	valid_int(long long *num_ptr)
 
 int	parsing_num(char **argv, int index, long long	*num_ptr)
 {
-	int	i;
-	int	len;
 	char	*num_str;
 
-	i = index;
-	while (argv[1][index++])
-	{
-		if (32 == argv[1][index])
-			break ;
-		else
-			continue ;
-	}
-	len = index - i;
 	num_ptr = (long long *)malloc(sizeof(long long));
-	num_str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!num_ptr || !num_str)
-		return (print_error("[ERROR]malloc error : malloc doesn't works\n"));
-	*num_ptr = ft_atoi(num_str);
-	if (valid_int(num_ptr))
+	if (!num_ptr)
+		return (print_error("[ERROR]allocatin error : malloc doesn't works\n"));
+	if (valid_int(num_ptr, argv, index))
 		return (print_error("[ERROR]out of scope : not integer scope!\n"));
-	free(num_str);
 	return (len);
 }
 
@@ -100,7 +84,6 @@ int main(int argc, char **argv)
 	t_dlist	**A_node;
 	t_dlist	**B_node;
 
-	if (!valid_arg(argc, argv, A_node))
-		return (0);
+	valid_arg(argc, argv, A_node);
 	num_arr = parsing_num(argv);
 }

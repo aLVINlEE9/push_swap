@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:15:38 by seungsle          #+#    #+#             */
-/*   Updated: 2021/09/19 18:36:29 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/09/19 18:52:36 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	create_node(t_dlist **head)
 
 	node = (t_dlist *)malloc(sizeof(t_list));
 	if (!node)
-		return (erint_error("[ERROR]allocation error : malloc doesn't works\n"));
+		return (print_error("[ERROR]allocation error : malloc doesn't works\n"));
 	if (!node->pre_node)
 		node->pre_node = (*head);
 }
@@ -48,12 +48,12 @@ void vaild_arg(int argc, char **argv, t_dlist **A_node)
 	while (argv[1][i++])
 	{
 		if (32 == argv[1][i])
-			continue;
+			continue ;
 		if (!(48 <= argv[1][i] && argv[1][i] <= 57) || !(argv[1][i] == 45))
 			return (print_error("[ERROR]bad arguments : not number!\n"));
 		else
 			i += parsing_num(argv[1], i, num_ptr);
-		append_node(A_node, num_ptr)
+		append_node(A_node, num_ptr);
 		free(num_ptr);
 	}
 }
@@ -69,11 +69,22 @@ int	valid_int(long long *num_ptr, char **argv, int index)
 
 int	parsing_num(char **argv, int index, long long	*num_ptr)
 {
+	int		i;
+	int		len;
 	char	*num_str;
 
+	i = index;
 	num_ptr = (long long *)malloc(sizeof(long long));
 	if (!num_ptr)
 		return (print_error("[ERROR]allocatin error : malloc doesn't works\n"));
+	while (argv[1][index++])
+	{
+		if (argv[1][index] == ' ')
+			break ;
+		else
+			continue ;
+	}
+	len = index - i;
 	if (valid_int(num_ptr, argv, index))
 		return (print_error("[ERROR]out of scope : not integer scope!\n"));
 	return (len);

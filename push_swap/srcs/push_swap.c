@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:15:38 by seungsle          #+#    #+#             */
-/*   Updated: 2021/09/20 14:12:32 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/09/20 14:38:24 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	print_error(char *str)
 
 void	init_node(t_dlist **A_node, t_dlist **B_node)
 {
-	A_node->
+	A_node
 }
 
 void	create_node(t_dlist **head)

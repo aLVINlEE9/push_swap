@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:15:38 by seungsle          #+#    #+#             */
-/*   Updated: 2021/09/19 18:52:36 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/09/20 14:12:32 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int	print_error(char *str)
 	write(1, "\n", 1);
 	write(2, str, ft_strlen(str));
 	exit(EXIT_FAILURE);
+}
+
+void	init_node(t_dlist **A_node, t_dlist **B_node)
+{
+	A_node->
 }
 
 void	create_node(t_dlist **head)
@@ -95,6 +100,7 @@ int main(int argc, char **argv)
 	t_dlist	**A_node;
 	t_dlist	**B_node;
 
+	init_node(A_node, B_node);
 	valid_arg(argc, argv, A_node);
 	num_arr = parsing_num(argv);
 }

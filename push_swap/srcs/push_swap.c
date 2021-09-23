@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:15:38 by seungsle          #+#    #+#             */
-/*   Updated: 2021/09/20 14:38:24 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/09/23 14:53:32 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,7 @@ int	print_error(char *str)
 	exit(EXIT_FAILURE);
 }
 
-void	init_node(t_dlist **A_node, t_dlist **B_node)
-{
-	A_node
-}
-
-void	create_node(t_dlist **head)
-{
-	t_dlist *node;
-
-	node = (t_dlist *)malloc(sizeof(t_list));
-	if (!node)
-		return (print_error("[ERROR]allocation error : malloc doesn't works\n"));
-	if (!node->pre_node)
-		node->pre_node = (*head);
-}
-
-void append_node(t_dlist *head, int *num_ptr)
-{
-	t_dlist *node;
-}
-
-void vaild_arg(int argc, char **argv, t_dlist **A_node)
+void vaild_arg(int argc, char **argv, t_dlist **A_node, t_dilst **B_node)
 {
 	int	i;
 	int	num;
@@ -50,6 +29,7 @@ void vaild_arg(int argc, char **argv, t_dlist **A_node)
 	if (argc !=2)
 		return (print_error("[ERROR]bad arguments : not one argument!\n"));
 	create_node(A_node);
+	create_node(B_node);
 	while (argv[1][i++])
 	{
 		if (32 == argv[1][i])
@@ -97,10 +77,9 @@ int	parsing_num(char **argv, int index, long long	*num_ptr)
 
 int main(int argc, char **argv)
 {
-	t_dlist	**A_node;
-	t_dlist	**B_node;
+	t_dlist	*A_node;
+	t_dlist	*B_node;
 
-	init_node(A_node, B_node);
-	valid_arg(argc, argv, A_node);
+	valid_arg(argc, argv, &A_node, &B_node);
 	num_arr = parsing_num(argv);
 }

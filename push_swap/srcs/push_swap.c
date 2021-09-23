@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:15:38 by seungsle          #+#    #+#             */
-/*   Updated: 2021/09/23 14:53:32 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/09/23 16:51:44 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	print_error(char *str)
 	exit(EXIT_FAILURE);
 }
 
-void vaild_arg(int argc, char **argv, t_dlist **A_node, t_dilst **B_node)
+void vaild_arg(int argc, char **argv, t_dlist **A_head)
 {
 	int	i;
 	int	num;
@@ -28,8 +28,6 @@ void vaild_arg(int argc, char **argv, t_dlist **A_node, t_dilst **B_node)
 	i = 0;
 	if (argc !=2)
 		return (print_error("[ERROR]bad arguments : not one argument!\n"));
-	create_node(A_node);
-	create_node(B_node);
 	while (argv[1][i++])
 	{
 		if (32 == argv[1][i])
@@ -38,7 +36,7 @@ void vaild_arg(int argc, char **argv, t_dlist **A_node, t_dilst **B_node)
 			return (print_error("[ERROR]bad arguments : not number!\n"));
 		else
 			i += parsing_num(argv[1], i, num_ptr);
-		append_node(A_node, num_ptr);
+		append_node(A_head, (int *)num_ptr);
 		free(num_ptr);
 	}
 }
@@ -77,9 +75,10 @@ int	parsing_num(char **argv, int index, long long	*num_ptr)
 
 int main(int argc, char **argv)
 {
-	t_dlist	*A_node;
-	t_dlist	*B_node;
+	t_dlist	**A_head;
+	t_dlist	**B_head;
 
-	valid_arg(argc, argv, &A_node, &B_node);
+	init_head(A_head, B_head);
+	valid_arg(argc, argv, A_head);
 	num_arr = parsing_num(argv);
 }

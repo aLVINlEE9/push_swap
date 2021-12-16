@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#incldue "../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void init_head(t_dlist **A_head, t_dlist **B_dlist)
 {

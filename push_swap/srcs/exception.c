@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   exception.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/23 17:26:09 by seungsle         ###   ########.fr       */
+/*   Created: 2021/12/23 17:35:09 by seungsle          #+#    #+#             */
+/*   Updated: 2021/12/23 17:43:12 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+# include "push_swap.h"
 
-typedef	struct	s_dlist{
-	int	data;
-	struct s_dlist *next;
-	struct s_dlist *prev;
-}								t_dlist;
-
-# define TRUE 1
-# define FALSE 0
-# include <stdlib.h>
-# include <unistd.h>
-#	include <limits.h>
-
-#endif
+int exception_checker(char **argv)
+{
+    
+}

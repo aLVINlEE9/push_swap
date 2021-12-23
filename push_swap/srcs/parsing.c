@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/23 17:26:09 by seungsle         ###   ########.fr       */
+/*   Created: 2021/12/23 17:44:23 by seungsle          #+#    #+#             */
+/*   Updated: 2021/12/23 17:49:15 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+# include "push_swap.h"
 
-typedef	struct	s_dlist{
-	int	data;
-	struct s_dlist *next;
-	struct s_dlist *prev;
-}								t_dlist;
-
-# define TRUE 1
-# define FALSE 0
-# include <stdlib.h>
-# include <unistd.h>
-#	include <limits.h>
-
-#endif
+int parsing(char **argv)
+{
+    while(*argv)
+    {
+        ft_split(*argv);
+        *argv++;
+    }
+}

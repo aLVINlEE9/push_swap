@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 18:28:00 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/23 19:48:33 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/23 19:57:32 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,23 +55,20 @@ int	ft_idx(char *buf, char c)
 	return (idx);
 }
 
-char	**ft_split(char **argv, char **ret, char c, int idx)
+char	**ft_split(char **argv, char **ret, int idx, int i)
 {
 	char	*buf;
 	char	*s;
-	int i;
 
-	i = 0;
-	idx = 0;
-	while(argv[i])
+	while (argv[i])
 	{
 		s = argv[i];
 		while (*s)
 		{
-			if (*s != c)
+			if (*s != ' ')
 			{
 				buf = (char *)s;
-				while (*s && *s != c)
+				while (*s && *s != ' ')
 					s++;
 				ret[idx] = (char *)malloc(sizeof(char) * (s - buf + 1) + 1);
 				if (!ret[idx])

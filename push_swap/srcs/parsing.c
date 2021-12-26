@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:44:23 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/23 19:46:40 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/23 19:56:48 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ int parsing(char **argv)
     arr = (long long **)malloc(sizeof(long *) * idx);
     if (!arr || !splited_char)
         return (NULL);
-    splited_char = ft_split(argv, splited_char, ' ', idx);
+    splited_char = ft_split(argv, splited_char, 0, 0);
     arr = get_arr(splited_char);
 }

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:44:23 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 14:47:48 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/31 14:49:25 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int	count_idx(char **argv)
 
 void	get_arr(char **splited_char, long long *arr)
 {
-	int i;
-	char *buf;
-	long long num;
+	int	i;
+	char	*buf;
+	long long	num;
 
 	i = 0;
 	while (splited_char[i])
@@ -74,9 +74,5 @@ long long	*parsing(int argc, char **argv)
 	if (exception_checker_3(arr, idx))
 		free_and_exit(splited_char, arr);
 	free_splited_char(splited_char);
-	for(int i = 0; i < idx; i++)
-	{
-		printf("%lld\n", arr[i]);
-	}
 	return (arr);
 }

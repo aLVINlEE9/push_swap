@@ -6,15 +6,15 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:35:09 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 14:43:43 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/31 14:53:04 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-int sort_check(long long *arr, int idx)
+int	sort_check(long long *arr, int idx)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < idx - 1)
@@ -22,7 +22,7 @@ int sort_check(long long *arr, int idx)
 		if (arr[i] < arr[i + 1])
 		{
 			i++;
-			continue;
+			continue ;
 		}
 		else
 			return (1);
@@ -30,9 +30,9 @@ int sort_check(long long *arr, int idx)
 	return (0);
 }
 
-int exception_checker_1(char *buf)
+int	exception_checker_1(char *buf)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	if (buf[0] == '0')
@@ -51,31 +51,33 @@ int exception_checker_1(char *buf)
 		if (buf[i] < '0' || buf[i] > '9')
 			return (exception_print("one of input value is not a number"));
 		if (i > 10)
-			return (exception_print("one of input value is not in integer interval"));
+			return (exception_print("one of input value is not in \
+			integer interval"));
 		i++;
 	}
 	return (0);
 }
 
-int exception_checker_2(long long buf)
+int	exception_checker_2(long long buf)
 {
 	if (!(buf >= INT_MIN && buf <= INT_MAX))
-		return (exception_print("one of input value is not in integer interval"));
+		return (exception_print("one of input value is not in \
+		integer interval"));
 	return (0);
 }
 
-int exception_checker_3(long long *buf, int idx)
+int	exception_checker_3(long long *buf, int idx)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	if (!sort_check(buf, idx))
 		return (exception_print("all input values are already sorted"));
-	while(i <= idx)
+	while (i <= idx)
 	{
 		j = 0;
-		while(j < i)
+		while (j < i)
 		{
 			if (buf[j] == buf[i])
 				return (exception_print("input values have same numbers"));
@@ -86,7 +88,7 @@ int exception_checker_3(long long *buf, int idx)
 	return (0);
 }
 
-int exception_print(char *str)
+int	exception_print(char *str)
 {
 	write(1, "[Exception Occurred : ", 22);
 	write(1, str, (int)ft_strlen(str));

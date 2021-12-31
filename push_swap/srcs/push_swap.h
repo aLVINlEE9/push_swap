@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 14:46:56 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/31 14:50:08 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ struct	s_node
 	t_node	*next;
 };
 
-void free_and_exit(char **buf_1, long long *buf_2);
-void free_splited_char(char **splited_char);
+void	free_and_exit(char **buf_1, long long *buf_2);
+void	free_splited_char(char **splited_char);
 
-int exception_print(char *str);
-int sort_check(long long *arr, int idx);
-int exception_checker_1(char *splited_char);
-int exception_checker_2(long long buf);
-int exception_checker_3(long long *buf, int idx);
+int	exception_print(char *str);
+int	sort_check(long long *arr, int idx);
+int	exception_checker_1(char *splited_char);
+int	exception_checker_2(long long buf);
+int	exception_checker_3(long long *buf, int idx);
 
 void	get_arr(char **splited_char, long long *arr);
 long long	*parsing(int argc, char **argv);

@@ -6,13 +6,13 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 18:28:00 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/30 12:59:15 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/31 13:51:55 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**ft_malloc_error(char **ret)
+void	ft_malloc_error(char **ret)
 {
 	int		i;
 
@@ -23,7 +23,7 @@ char	**ft_malloc_error(char **ret)
 		i++;
 	}
 	free(ret);
-	return (NULL);
+	return ;
 }
 
 int	ft_idx(char *buf, char c)
@@ -55,7 +55,7 @@ int	ft_idx(char *buf, char c)
 	return (idx);
 }
 
-char	**ft_split(char **argv, char **ret, int idx, int i)
+void	ft_split(char **argv, char **ret, int idx, int i)
 {
 	char	*buf;
 	char	*s;
@@ -80,5 +80,5 @@ char	**ft_split(char **argv, char **ret, int idx, int i)
 		}
 		i++;
 	}
-	return (ret);
+	return ;
 }

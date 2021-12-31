@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:44:23 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 13:18:07 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/31 14:34:39 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	count_idx(char **argv)
 	return (count);
 }
 
-long long *get_arr(char **splited_char, long long *arr)
+void	get_arr(char **splited_char, long long *arr)
 {
 	int i;
 	char *buf;
@@ -53,7 +53,7 @@ long long *get_arr(char **splited_char, long long *arr)
 			free_and_exit(splited_char, arr);
 		arr[i++] = num;
 	}
-	return (arr);
+	return ;
 }
 
 long long	*parsing(char **argv)
@@ -67,10 +67,10 @@ long long	*parsing(char **argv)
 	arr = (long long *)malloc(sizeof(long) * idx);
 	if (!arr || !splited_char)
 		exit (1);
-	splited_char = ft_split(argv, splited_char, 0, 1);
-	arr = get_arr(splited_char, arr);
-	// if (exception_checker_3(arr))
-	// 	free_and_exit(splited_char, arr);
+	ft_split(argv, splited_char, 0, 1);
+	get_arr(splited_char, arr);
+	if (exception_checker_3(arr, idx))
+		free_and_exit(splited_char, arr);
 	free_splited_char(splited_char);
 	for(int i = 0; i < idx; i++)
 	{

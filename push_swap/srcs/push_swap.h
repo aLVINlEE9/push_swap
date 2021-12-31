@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 11:58:44 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/31 13:09:32 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,15 @@ struct	s_node
 	t_node	*next;
 };
 
+void free_and_exit(char **buf_1, long long *buf_2);
 void free_splited_char(char **splited_char);
-int exception_print(char *str);
-int exception_checker(char *splited_char);
 
-int	*parsing(char **argv);
+int exception_print(char *str);
+int exception_checker_1(char *splited_char);
+int exception_checker_2(long long buf);
+// int exception_checker_3(long long *buf);
+
+long long	*parsing(char **argv);
 int	count_idx(char **argv);
 
 char	**ft_split(char **argv, char **ret, int idx, int i);
@@ -42,5 +46,6 @@ char	*ft_strchr(const char *s, int c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
 size_t	ft_strlen(const char *s);
+long long	ft_atoi(const char *str);
 
 #endif

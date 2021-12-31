@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:44:23 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 14:34:39 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/31 14:47:48 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,14 @@ void	get_arr(char **splited_char, long long *arr)
 	return ;
 }
 
-long long	*parsing(char **argv)
+long long	*parsing(int argc, char **argv)
 {
 	char		**splited_char;
 	long long	*arr;
 	int			idx;
 
+	if (argc == 1)
+		exit(1);
 	idx = count_idx(argv);
 	splited_char = (char **)malloc(sizeof(char *) * (idx + 1));
 	arr = (long long *)malloc(sizeof(long) * idx);

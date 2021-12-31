@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 14:36:41 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/31 14:46:56 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int exception_checker_2(long long buf);
 int exception_checker_3(long long *buf, int idx);
 
 void	get_arr(char **splited_char, long long *arr);
-long long	*parsing(char **argv);
+long long	*parsing(int argc, char **argv);
 int	count_idx(char **argv);
 
 void	ft_split(char **argv, char **ret, int idx, int i);

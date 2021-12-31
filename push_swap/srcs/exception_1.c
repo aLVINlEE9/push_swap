@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:35:09 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 14:53:04 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/31 15:05:10 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	exception_checker_1(char *buf)
 	int	i;
 
 	i = 1;
-	if (buf[0] == '0')
+	if (buf[0] == '0' && buf[1] != '\0')
 		return (exception_print("zero cannot be first place"));
 	else if ((buf[0] < '0' || buf[0] > '9') && buf[0] != '-')
 		return (exception_print("one of input value is not a number"));
@@ -73,7 +73,7 @@ int	exception_checker_3(long long *buf, int idx)
 
 	i = 1;
 	if (!sort_check(buf, idx))
-		return (exception_print("all input values are already sorted"));
+		return (1);
 	while (i <= idx)
 	{
 		j = 0;

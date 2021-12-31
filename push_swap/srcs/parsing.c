@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:44:23 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/30 14:30:00 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/31 12:01:39 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,6 @@ int	count_idx(char **argv)
 	return (count);
 }
 
-void free_splited_char(char **splited_char)
-{
-	int i;
-
-	i = 0;
-	while(splited_char[i])
-	{
-		free(splited_char[i++]);
-	}
-	free(splited_char);
-	return ;
-}
-
 long long *get_arr(char **splited_char, int *arr)
 {
 	int i;
@@ -56,9 +43,13 @@ long long *get_arr(char **splited_char, int *arr)
 	i = 0;
 	while (splited_char[i])
 	{
-		buf = splited_char[i];
-		exception_checker(buf);
-
+		buf = splited_char[i++];
+		if (exception_checker(buf))
+		{
+			free_splited_char(splited_char);
+			free(arr);
+			exit(1);
+		}
 	}
 }
 

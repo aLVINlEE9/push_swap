@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/30 14:30:10 by seungsle         ###   ########.fr       */
+/*   Updated: 2021/12/31 11:58:44 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ struct	s_node
 	t_node	*next;
 };
 
-void exception_print(char *str);
-void exception_checker(char *splited_char);
+void free_splited_char(char **splited_char);
+int exception_print(char *str);
+int exception_checker(char *splited_char);
 
 int	*parsing(char **argv);
 int	count_idx(char **argv);

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 14:50:08 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/09 17:05:42 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,11 @@
 # define TRUE 1
 # define FALSE 0
 
-typedef struct s_node	t_node;
-struct	s_node
-{
-	int	value;
-	t_node	*prev;
-	t_node	*next;
-};
+typedef struct snode{
+	int data;
+	tnode *prev;
+	tnode *next;
+} tnode;
 
 void	free_and_exit(char **buf_1, long long *buf_2);
 void	free_splited_char(char **splited_char);

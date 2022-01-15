@@ -6,11 +6,12 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 17:03:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/15 14:15:22 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/15 17:00:26 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include<stdio.h>
 
 tnode *createNode(int data)
 {
@@ -24,22 +25,15 @@ tnode *createNode(int data)
 	return (newNode);
 }
 
-void initList(tlist *list1, tlist *list2)
+tlist *initList(tlist *list)
 {
-	list1 = (tlist *)malloc(sizeof(tlist));
-	list2 = (tlist *)malloc(sizeof(tlist));
-	list1->head = createNode(0);
-	list2->head = createNode(0);
-	list1->tail = createNode(0);
-	list2->tail = createNode(0);
-	list1->head->next = list1->tail;
-	list1->tail->prev = list1->head;
-	list2->head->next = list2->tail;
-	list2->tail->prev = list2->head;
-	list1->count = 0;
-	list2->count = 0;
-	
-	return ;
+	list = (tlist *)malloc(sizeof(tlist)); 
+	list->head = createNode(0);
+	list->tail = createNode(0);
+	list->head->next = list->tail;
+	list->tail->prev = list->head;
+	list->count = 0;
+	return list;
 }
 
 void appendNode(tlist *list, int data)
@@ -62,5 +56,19 @@ void initNode(tlist *list, long long *arr, int idx)
 
 	i = 0;
 	while(i < idx)
-		appendNode(list, arr[i++]);
+		appendNode(list, (int)arr[i++]);
+}
+
+void printNode(tlist *list)
+{
+	tnode *now;
+	int cnt;
+	now = list->head->next;
+	cnt = list->count;
+	while(cnt--)
+	{
+		printf("%d  ", now->data);
+		now = now->next;
+	}
+	printf("\n");
 }

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/15 14:13:02 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/15 16:59:09 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 typedef struct snode{
 	int data;
-	tnode *prev;
-	tnode *next;
+	struct snode *prev;
+	struct snode *next;
 } tnode;
 
 typedef struct slist{
@@ -41,7 +41,7 @@ int	exception_checker_2(long long buf);
 int	exception_checker_3(long long *buf, int idx);
 
 void	get_arr(char **splited_char, long long *arr);
-long long	*parsing(int argc, char **argv);
+long long	*parsing(int argc, char **argv, int idx);
 int	count_idx(char **argv);
 
 void	ft_split(char **argv, char **ret, int idx, int i);
@@ -55,8 +55,9 @@ size_t	ft_strlen(const char *s);
 long long	ft_atoi(const char *str);
 
 tnode *createNode(int data);
-void initList(tlist *list1, tlist *list2);
+tlist *initList(tlist *list);
 void appendNode(tlist *list, int data);
 void initNode(tlist *List, long long *arr, int idx);
+void printNode(tlist *list);
 
 #endif

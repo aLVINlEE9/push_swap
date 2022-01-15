@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/15 12:29:41 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/15 14:13:02 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ typedef struct snode{
 	tnode *next;
 } tnode;
 
-typedef struct sdummy{
+typedef struct slist{
 	int count;
 	tnode *head;
 	tnode *tail;
-} tdummy;
+} tlist;
 
 void	free_and_exit(char **buf_1, long long *buf_2);
 void	free_splited_char(char **splited_char);
@@ -53,5 +53,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
 size_t	ft_strlen(const char *s);
 long long	ft_atoi(const char *str);
+
+tnode *createNode(int data);
+void initList(tlist *list1, tlist *list2);
+void appendNode(tlist *list, int data);
+void initNode(tlist *List, long long *arr, int idx);
 
 #endif

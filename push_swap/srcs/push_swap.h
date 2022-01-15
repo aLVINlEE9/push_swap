@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/15 16:59:09 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/15 18:09:58 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,10 @@ long long	ft_atoi(const char *str);
 
 tnode *createNode(int data);
 tlist *initList(tlist *list);
-void appendNode(tlist *list, int data);
 void initNode(tlist *List, long long *arr, int idx);
 void printNode(tlist *list);
+
+void push(tlist *list, int data);
+void pop(tlist *list, int data);
 
 #endif

@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   pushpop.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 17:25:46 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/15 18:04:51 by seungsle         ###   ########.fr       */
+/*   Created: 2022/01/15 18:09:20 by seungsle          #+#    #+#             */
+/*   Updated: 2022/01/15 18:10:10 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void push(tlist *list, int data)
 {
-	int idx;
-	long long	*arr;
-	tlist *Astack;
-	tlist *Bstack;
+	tnode *newNode;
+	
+	newNode = createNode(data);
+	newNode->next = list->tail;
+	newNode->prev = list->head;
+	list->tail->prev->next = newNode;
+	list->tail->prev = newNode;
+	list->count++;
 
-	idx = count_idx(argv);
-	arr = parsing(argc, argv, idx);
-	Astack = initList(Astack);
-	Bstack = initList(Bstack);
-	initNode(Astack, arr, idx);
-	sort(Astack, Bstack);
-	return (0);
+	return ;
+}
+
+void pop(tlist *list, int data)
+{
+	
 }

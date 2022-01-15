@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 17:03:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/15 17:00:26 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/15 18:09:30 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,14 @@ tlist *initList(tlist *list)
 	return list;
 }
 
-void appendNode(tlist *list, int data)
-{
-	tnode *newNode;
-	
-	newNode = createNode(data);
-	newNode->next = list->tail;
-	newNode->prev = list->head;
-	list->tail->prev->next = newNode;
-	list->tail->prev = newNode;
-	list->count++;
-
-	return ;
-}
-
 void initNode(tlist *list, long long *arr, int idx)
 {
 	int i;
 
 	i = 0;
 	while(i < idx)
-		appendNode(list, (int)arr[i++]);
+		push(list, (int)arr[i++]);
+	printNode(list);
 }
 
 void printNode(tlist *list)
@@ -70,5 +57,8 @@ void printNode(tlist *list)
 		printf("%d  ", now->data);
 		now = now->next;
 	}
+	printf("\nhead : %d\n", list->head->next->data);
+	printf("\ntail : %d\n", list->tail->prev->data);
+	printf("\ncount : %d\n", list->count);
 	printf("\n");
 }

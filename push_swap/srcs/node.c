@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 17:03:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/15 18:09:30 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/15 21:30:15 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void initNode(tlist *list, long long *arr, int idx)
 
 	i = 0;
 	while(i < idx)
-		push(list, (int)arr[i++]);
+		appendNode(list, (int)arr[i++]);
 	printNode(list);
 }
 

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/15 18:09:58 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/15 21:53:48 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,13 @@ tlist *initList(tlist *list);
 void initNode(tlist *List, long long *arr, int idx);
 void printNode(tlist *list);
 
+void appendNode(tlist *list, int data);
 void push(tlist *list, int data);
-void pop(tlist *list, int data);
+int pop(tlist *list);
+
+void sort(tlist *Astack, tlist *Bstack);
+
+void action_PA(tlist *pop_stack, tlist *push_stack);
+void action_PB(tlist *push_stack, tlist *pop_stack);
 
 #endif

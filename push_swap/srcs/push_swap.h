@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/16 02:19:13 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/16 02:46:11 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ void printNode(tlist *list);
 void appendNode(tlist *list, int data);
 void push(tlist *list, int data);
 int pop(tlist *list);
+void rotate(tlist *list);
+void reverse_rotate(tlist *list);
+void swap(tlist *list);
 
 void sort(tlist *Astack, tlist *Bstack);
 

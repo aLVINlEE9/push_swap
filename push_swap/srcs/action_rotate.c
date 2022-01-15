@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:19:40 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/16 03:04:50 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/16 03:14:53 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int action_RR(tlist *Astack, tlist *Bstack)
 {
 	if (Astack->count < 3 || Bstack->count < 3)
 		return FALSE;
-	return (action_RA(Astack) && action(Bstack));
+	return (action_RA(Astack) && action_RB(Bstack));
 }

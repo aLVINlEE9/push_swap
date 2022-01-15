@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:27:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/16 02:45:22 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/16 03:12:45 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void reverse_rotate(tlist *list)
 	first = list->head->next;
 	list->head->next = move;
 	move->prev = NULL;
-	move->next == first;
+	move->next = first;
 	first->prev = move;
 	list->tail->prev = last;
 	last->next = NULL;

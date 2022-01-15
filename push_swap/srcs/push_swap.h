@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/15 21:53:48 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/16 02:19:13 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int pop(tlist *list);
 
 void sort(tlist *Astack, tlist *Bstack);
 
-void action_PA(tlist *pop_stack, tlist *push_stack);
-void action_PB(tlist *push_stack, tlist *pop_stack);
+int action_PA(tlist *pop_stack, tlist *push_stack);
+int action_PB(tlist *push_stack, tlist *pop_stack);
 
 #endif

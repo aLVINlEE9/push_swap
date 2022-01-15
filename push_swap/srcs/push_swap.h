@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/09 17:05:42 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/15 12:29:41 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ typedef struct snode{
 	tnode *prev;
 	tnode *next;
 } tnode;
+
+typedef struct sdummy{
+	int count;
+	tnode *head;
+	tnode *tail;
+} tdummy;
 
 void	free_and_exit(char **buf_1, long long *buf_2);
 void	free_splited_char(char **splited_char);

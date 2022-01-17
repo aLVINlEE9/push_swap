@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/17 12:57:50 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/17 13:13:33 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int action_rr(tlist *Astack, tlist *Bstack);
 int action_sa(tlist *Stack);
 int action_sb(tlist *Stack);
 int action_ss(tlist *Astack, tlist *Bstack);
-int action_pa(tlist *pop_stack, tlist *push_stack);
-int action_pb(tlist *push_stack, tlist *pop_stack);
+int action_pb(tlist *pop_stack, tlist *push_stack);
+int action_pa(tlist *push_stack, tlist *pop_stack);
 
 #endif

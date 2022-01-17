@@ -6,13 +6,13 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 21:38:12 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/16 02:19:31 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:57:34 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int action_PA(tlist *pop_stack, tlist *push_stack)
+int action_pa(tlist *pop_stack, tlist *push_stack)
 {
 	int poped;
 
@@ -24,7 +24,7 @@ int action_PA(tlist *pop_stack, tlist *push_stack)
 	return TRUE;
 }
 
-int action_PB(tlist *push_stack, tlist *pop_stack)
+int action_pb(tlist *push_stack, tlist *pop_stack)
 {
 	int poped;
 

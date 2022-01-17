@@ -6,31 +6,43 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:19:40 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/16 03:14:53 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/17 13:00:39 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int action_RA(tlist *Stack)
+int	action_ra(tlist *Stack)
 {
-	if (Stack->count < 3)
-		return FALSE;
-	rotate(Stack);
-	return TRUE;
+	if (Stack->count < 2)
+		return (FALSE);
+	else if (Stack->count == 2)
+	{
+		swap(Stack);
+		return (TRUE);
+	}
+	else if (Stack->count >= 3)
+		rotate(Stack);
+	return (TRUE);
 }
 
-int action_RB(tlist *Stack)
+int	action_rb(tlist *Stack)
 {
-	if (Stack->count < 3)
-		return FALSE;
-	rotate(Stack);
-	return TRUE;
+	if (Stack->count < 2)
+		return (FALSE);
+	else if (Stack->count == 2)
+	{
+		swap(Stack);
+		return (TRUE);
+	}
+	else if (Stack->count >= 3)
+		rotate(Stack);
+	return (TRUE);
 }
 
-int action_RR(tlist *Astack, tlist *Bstack)
+int	action_rr(tlist *Astack, tlist *Bstack)
 {
-	if (Astack->count < 3 || Bstack->count < 3)
-		return FALSE;
-	return (action_RA(Astack) && action_RB(Bstack));
+	if (Astack->count < 2 || Bstack->count < 2)
+		return (FALSE);
+	return (action_ra(Astack) && action_rb(Bstack));
 }

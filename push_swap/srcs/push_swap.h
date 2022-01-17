@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/16 03:12:12 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:57:50 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,16 @@ void swap(tlist *list);
 
 void sort(tlist *Astack, tlist *Bstack);
 
-int action_RRA(tlist *Stack);
-int action_RRB(tlist *Stack);
-int action_RRR(tlist *Astack, tlist *Bstack);
-int action_RA(tlist *Stack);
-int action_RB(tlist *Stack);
-int action_RR(tlist *Astack, tlist *Bstack);
-int action_SA(tlist *Stack);
-int action_SB(tlist *Stack);
-int action_SS(tlist *Astack, tlist *Bstack);
-int action_PA(tlist *pop_stack, tlist *push_stack);
-int action_PB(tlist *push_stack, tlist *pop_stack);
+int action_rra(tlist *Stack);
+int action_rrb(tlist *Stack);
+int action_rrr(tlist *Astack, tlist *Bstack);
+int action_ra(tlist *Stack);
+int action_rb(tlist *Stack);
+int action_rr(tlist *Astack, tlist *Bstack);
+int action_sa(tlist *Stack);
+int action_sb(tlist *Stack);
+int action_ss(tlist *Astack, tlist *Bstack);
+int action_pa(tlist *pop_stack, tlist *push_stack);
+int action_pb(tlist *push_stack, tlist *pop_stack);
 
 #endif

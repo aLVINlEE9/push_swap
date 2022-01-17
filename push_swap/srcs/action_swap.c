@@ -6,13 +6,13 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:19:43 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/16 03:15:01 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:58:24 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int action_SA(tlist *Stack)
+int action_sa(tlist *Stack)
 {
 	if (Stack->count < 2)
 		return FALSE;
@@ -20,7 +20,7 @@ int action_SA(tlist *Stack)
 	return TRUE;
 }
 
-int action_SB(tlist *Stack)
+int action_sb(tlist *Stack)
 {
 	if (Stack->count < 2)
 		return FALSE;
@@ -28,9 +28,9 @@ int action_SB(tlist *Stack)
 	return TRUE;
 }
 
-int action_SS(tlist *Astack, tlist *Bstack)
+int action_ss(tlist *Astack, tlist *Bstack)
 {
 	if (Astack->count < 2 || Bstack->count < 2)
 		return FALSE;
-	return (action_SA(Astack) && action_SB(Bstack));
+	return (action_sa(Astack) && action_sb(Bstack));
 }

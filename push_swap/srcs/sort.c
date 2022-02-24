@@ -6,12 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 18:05:08 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/17 13:13:59 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:36:00 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include<stdio.h>
+#include "../includes/push_swap.h"
 
 void sort(tlist *Astack, tlist *Bstack)
 {

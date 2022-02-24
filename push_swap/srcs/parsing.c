@@ -6,12 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:44:23 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/15 16:44:12 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:35:51 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "../includes/push_swap.h"
 
 int	count_idx(char **argv)
 {

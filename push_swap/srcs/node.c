@@ -6,12 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 17:03:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/15 21:30:15 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:35:48 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include<stdio.h>
+#include "../includes/push_swap.h"
 
 tnode *createNode(int data)
 {

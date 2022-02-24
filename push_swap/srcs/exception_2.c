@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 12:55:11 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 14:50:49 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:35:17 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	free_and_exit(char **buf_1, long long *buf_2)
 {

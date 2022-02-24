@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:35:09 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 15:05:10 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:35:11 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	sort_check(long long *arr, int idx)
 {

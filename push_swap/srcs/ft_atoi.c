@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 12:21:03 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 12:37:24 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:35:21 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 long long	ft_atoi(const char *str)
 {

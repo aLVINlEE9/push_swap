@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 18:09:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/17 13:55:09 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:36:10 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void appendNode(tlist *list, int data)
 {

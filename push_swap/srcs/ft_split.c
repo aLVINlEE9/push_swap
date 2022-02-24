@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 18:28:00 by seungsle          #+#    #+#             */
-/*   Updated: 2021/12/31 13:51:55 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:35:26 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_malloc_error(char **ret)
 {

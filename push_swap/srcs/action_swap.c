@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:19:43 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/17 12:58:24 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:35:07 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int action_sa(tlist *Stack)
 {

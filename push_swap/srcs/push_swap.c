@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:25:46 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/15 18:04:51 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/24 17:21:05 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	main(int argc, char **argv)
 {
@@ -19,7 +19,10 @@ int	main(int argc, char **argv)
 	tlist *Astack;
 	tlist *Bstack;
 
+	Astack = NULL;
+	Bstack = NULL;
 	idx = count_idx(argv);
+	printf("%d\n", idx);
 	arr = parsing(argc, argv, idx);
 	Astack = initList(Astack);
 	Bstack = initList(Bstack);

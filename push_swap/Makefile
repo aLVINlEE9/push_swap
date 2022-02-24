@@ -3,48 +3,53 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: seungsle <seungsle@student.42seoul.kr      +#+  +:+       +#+         #
+#    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/06 17:48:47 by seungsle          #+#    #+#              #
-#    Updated: 2021/09/11 17:15:09 by seungsle         ###   ########.fr        #
+#    Updated: 2022/02/24 16:32:24 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
-PROG = push_swap
+NAME	= pushswap
+CC		= gcc
+CFLAG	= -Werror -Wall -Wextra
+SRCS 	=	srcs/action_pushpop.c		\
+			srcs/action_reverserotate.c	\
+			srcs/action_rotate.c		\
+			srcs/action_swap.c			\
+			srcs/exception_1.c			\
+			srcs/exception_2.c			\
+			srcs/ft_atoi.c				\
+			srcs/ft_memchr.c			\
+			srcs/ft_split.c				\
+			srcs/ft_strchr.c			\
+			srcs/ft_strlcpy.c			\
+			srcs/ft_strlen.c			\
+			srcs/node.c					\
+			srcs/parsing.c				\
+			srcs/push_swap.c			\
+			srcs/sort.c					\
+			srcs/util_pushpop.c			\
+			srcs/util_rotate.c			\
+			srcs/util_swap.c			\
 
-SRCS 	= srcs/push_swap.c
 OBJS 	= ${SRCS:.c=.o}
-MAIN	= srcs/push_swap.c
+INCLUDE	= -I./includes/
 
-HEADER	= -I./includes/
+all : $(NAME)
 
-CC 		= gcc
-CFLAGS 	= -Wall -Wextra -Werror -g
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAG) $(OBJS) $(INCLUDE) -o $(NAME)
 
-.c.o:		%.o : %.c
-					@gcc ${CFLAGS} ${HEADER} -c $< -o $(<:.c=.o)
+.c.o:
+	$(CC) $(CFLAG) -c $< -o $@
 
-$(NAME):	${OBJS}
-					@echo "\033[33m----Compiling lib----"
-					@make re -C ./libft
-					@cp libft/libft.a ./$(NAME)
-					@ar -rcs ${NAME} ${OBJS}
-					@$(CC) $(NAME) ${MAIN} -o ${PROG}
-					@echo "\033[32mPipex Compiled!\n"
+clean :
+	rm -f $(OBJS)
 
-all: 		${NAME}
+fclean : clean
+	rm -f $(NAME)
 
-clean:
-					@make clean -C ./libft
-					@rm -f ${OBJS} ${OBJS_B}
-
-fclean: 	clean
-					@make fclean -C ./libft
-					@rm -f $(NAME)
-					@rm -f ${PROG}
-					@echo "\n\033[31mDeleting EVERYTHING!\n"
-
-re:			fclean all
+re : fclean all
 
 .PHONY: all clean fclean re

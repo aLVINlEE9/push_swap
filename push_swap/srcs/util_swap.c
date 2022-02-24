@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 02:21:46 by seungsle          #+#    #+#             */
-/*   Updated: 2022/01/17 13:07:55 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:36:18 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void swap(tlist *list)
 {

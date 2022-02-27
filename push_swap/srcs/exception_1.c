@@ -6,13 +6,13 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:35:09 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/24 16:35:11 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/25 11:47:25 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	sort_check(long long *arr, int idx)
+int	sort_check_arr(long long *arr, int idx)
 {
 	int	i;
 
@@ -72,8 +72,8 @@ int	exception_checker_3(long long *buf, int idx)
 	int	j;
 
 	i = 1;
-	if (!sort_check(buf, idx))
-		return (1);
+	if (!sort_check_arr(buf, idx))
+		return (exception_print("input values are already sorted"));
 	while (i <= idx)
 	{
 		j = 0;

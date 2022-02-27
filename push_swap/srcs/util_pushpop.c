@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 18:09:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/24 16:36:10 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/27 18:23:12 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void appendNode(tlist *list, int data)
 	tnode *newNode;
 	
 	newNode = createNode(data);
-	newNode->next = list->tail;
-	newNode->prev = list->head;
 	list->tail->prev->next = newNode;
+	newNode->prev = list->tail->prev;
 	list->tail->prev = newNode;
+	newNode->next = list->tail;
 	list->count++;
 
 	return ;
@@ -34,6 +34,7 @@ void push(tlist *list, int data)
 	pushNode->next = list->head->next;
 	list->head->next->prev = pushNode;
 	list->head->next = pushNode;
+	pushNode->prev = list->head;
 	list->count++;
 
 	return ;
@@ -47,8 +48,9 @@ int pop(tlist *list)
 	popNode = list->head->next;
 	poped = popNode->data;
 	list->head->next = popNode->next;
-	popNode->next->prev = NULL;
+	popNode->next->prev = list->head;
 	popNode->next = NULL;
+	popNode->prev = NULL;
 	free(popNode);
 	list->count--;
 

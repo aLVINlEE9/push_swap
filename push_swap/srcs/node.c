@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 17:03:38 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/24 16:35:48 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/02/25 11:20:53 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ void printNode(tlist *list)
 	cnt = list->count;
 	while(cnt--)
 	{
-		printf("%d  ", now->data);
+		printf("%d\n", now->data);
 		now = now->next;
 	}
-	printf("\nhead : %d\n", list->head->next->data);
-	printf("\ntail : %d\n", list->tail->prev->data);
-	printf("\ncount : %d\n", list->count);
+	printf("\nhead : %d, ", list->head->next->data);
+	printf("tail : %d, ", list->tail->prev->data);
+	printf("count : %d, ", list->count);
 	printf("\n");
 }

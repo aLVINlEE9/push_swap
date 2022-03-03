@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 17:44:23 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/03 21:11:23 by seungsle         ###   ########.fr       */
+/*   Created: 2022/03/03 22:01:23 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/03 22:15:40 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,22 @@ void	get_arr(char **splited_char, long long *arr)
 	return ;
 }
 
-long long	*parsing(int argc, char **argv, int idx)
+void	parsing(tlist *Astack, tlist *Bstack, int argc, char **argv)
 {
-	char		**splited_char;
+	int	idx;
+	char	**splited_char;
 	long long	*arr;
 
 	if (argc == 1)
-		exit(1);
+		
+	idx = count_idx(argv);
 	splited_char = (char **)malloc(sizeof(char *) * (idx + 1));
 	arr = (long long *)malloc(sizeof(long) * idx);
 	if (!arr || !splited_char)
-		exit (1);
+		exit(print_exception("malloc error"));
 	ft_split(argv, splited_char, 0, 1);
 	get_arr(splited_char, arr);
 	if (exception_checker_3(arr, idx))
 		free_and_exit(splited_char, arr);
 	free_splited_char(splited_char);
-	return (arr);
 }

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/27 18:11:42 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/03 21:19:44 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,18 @@
 # include <limits.h>
 # define TRUE 1
 # define FALSE 0
+
+typedef struct scommand{
+	int ra;
+	int rb;
+	int rr;
+	int rra;
+	int rrb;
+	int rrr;
+	int sa;
+	int sb;
+	int ss;
+} tcommand;
 
 typedef struct snode{
 	int data;
@@ -57,7 +69,7 @@ size_t	ft_strlen(const char *s);
 long long	ft_atoi(const char *str);
 
 tnode *createNode(int data);
-tlist *initList(tlist *list);
+void initList(tlist *list);
 void initNode(tlist *List, long long *arr, int idx);
 void printNode(tlist *list);
 
@@ -68,7 +80,8 @@ void rotate(tlist *list);
 void reverse_rotate(tlist *list);
 void swap(tlist *list);
 
-void sort(tlist *Astack, tlist *Bstack);
+void simple_sort(tlist *Astack, tlist *Bstack);
+void sort(tlist *Astack, tlist *Bstack, tcommand *command);
 
 int action_rra(tlist *Stack);
 int action_rrb(tlist *Stack);

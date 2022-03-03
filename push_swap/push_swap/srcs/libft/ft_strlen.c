@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 17:25:46 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/03 21:19:46 by seungsle         ###   ########.fr       */
+/*   Created: 2021/05/06 15:12:18 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/03 22:07:01 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlen(const char *s)
 {
-	int idx;
-	long long	*arr;
-	tlist *Astack;
-	tlist *Bstack;
-	tcommand *command;
+	size_t	i;
 
-	Astack = NULL;
-	Bstack = NULL;
-	idx = count_idx(argv);
-	arr = parsing(argc, argv, idx);
-	initList(Astack);
-	initList(Bstack);
-	initNode(Astack, arr, idx);
-	initCommand(command);
-	if (Astack->count <= 3)
-		simple_sort(Astack, Bstack);
-	else
-		sort(Astack, Bstack, command);
-	return (0);
+	i = 0;
+	while (*s++)
+		i++;
+	return (i);
 }

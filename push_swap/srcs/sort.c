@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 18:05:08 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/27 18:10:24 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/03 21:51:24 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,35 +32,41 @@ int	sort_check(tlist *list)
 	return (0);
 }
 
-// int	check_least_actions(tlist *Astack, tlist *Bstack)
-// {
-	
-// }
+void	check_least_actions(tlist *Astack, tlist *Bstack, tcommand *command)
+{
+	tnode	*Anow;
+	tnode	*Bnow;
+	int	i;
+	int	j;
 
-void sort(tlist *Astack, tlist *Bstack)
+	Anow = Astack->head->next;
+	Bnow = Bstack->head->next;
+	i = -1;
+	while(i++ < Astack->count)
+	{
+		j = -1;
+		while(j++ < Bstack->count)
+		{
+			if (Anow->data < Bnow->data)
+
+			Bnow = Bnow->next;
+		}
+		Anow = Anow->next;
+		
+	}
+}
+
+void	simple_sort(tlist *Astack, tlist *Bstack)
+{
+	
+}
+
+void	sort(tlist *Astack, tlist *Bstack, tcommand *command)
 {
 	action_pb(Astack, Bstack);
-	// while()
-	// if (check_least_actions(Astack, Bstack))
-	printf("--------Astack--------\n");
-	printNode(Astack);
-
-	printf("--------Bstack--------\n");
-	printNode(Bstack);
-	
-	action_pb(Astack, Bstack);
-
-	printf("--------Astack--------\n");
-	printNode(Astack);
-
-	printf("--------Bstack--------\n");
-	printNode(Bstack);
-
-	action_rr(Astack, Bstack);
-
-	printf("--------Astack--------\n");
-	printNode(Astack);
-
-	printf("--------Bstack--------\n");
-	printNode(Bstack);
+	while(sort_check(Bstack))
+	{
+		check_least_actions(Astack, Bstack, command);
+		execute_actions(Astack, Bstack, command);
+	}
 }

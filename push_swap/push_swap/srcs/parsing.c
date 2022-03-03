@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 22:01:23 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/03 22:15:40 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/03 23:12:26 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,5 @@ void	parsing(tlist *Astack, tlist *Bstack, int argc, char **argv)
 	if (exception_checker_3(arr, idx))
 		free_and_exit(splited_char, arr);
 	free_splited_char(splited_char);
+	initNode(Astack, Bstack, arr, idx);
 }

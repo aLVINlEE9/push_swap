@@ -6,23 +6,35 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 22:58:23 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/05 23:07:38 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/06 01:10:49 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	append_node(tlist *Astack, char *buf, int size)
+tnode	*create_node(int data)
 {
-	long long	ret;
+	tnode	*newNode;
 	
-	if (exception_parsing_string(buf, size))
-		return (1);
-	else
+	newNode = (tnode *)malloc(sizeof(tnode));
+	if (newNode == NULL)
+		exception_print("newNode malloc failed");
+	newNode->data = data;
+	newNode->next = NULL;
+	newNode->prev = NULL;
+	return newNode;
+}
+
+void	print_node(tlist *stack)
+{
+	tnode	*now;
+	int	cnt;
+
+	now = stack->head->next;
+	cnt = -1;
+	while(++cnt < stack->count)
 	{
-		ret = atod(buf, size);
-		if (exception_parsing_number(ret))
-			return (1);
-		return (0);
+		printf("%d\n", now->data);
+		now = now->next;
 	}
 }

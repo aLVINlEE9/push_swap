@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:52:46 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/05 22:35:59 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/05 23:37:00 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	free_stack(tlist *stack)
 	return (1);
 }
 
-int	free_headtail(tnode *node)
+int	free_node(tnode *node)
 {
 	free(node);
 	return (1);

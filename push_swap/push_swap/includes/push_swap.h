@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/03 22:35:51 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/05 22:59:59 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,10 @@
 # define TRUE 1
 # define FALSE 0
 
-typedef struct scommand{
-	int ra;
-	int rb;
-	int rr;
-	int rra;
-	int rrb;
-	int rrr;
-	int sa;
-	int sb;
-	int ss;
-} tcommand;
+typedef struct sstacks{
+	tlist *Astack;
+	tlist *Bstack;
+}	tstacks;
 
 typedef struct snode{
 	int data;
@@ -44,5 +37,21 @@ typedef struct slist{
 	tnode *head;
 	tnode *tail;
 } tlist;
+
+size_t	ft_strlen(const char *s);
+
+int	exception_print(char *str);
+int	exception_parsing(char *str, int size);
+
+void	create_stack(tstacks *stks);
+tnode	*create_node(int data);
+
+int	free_list(tlist *stack);
+int	free_stack(tlist *stack);
+int	free_headtail(tnode *node);
+
+int	split_to_stack(char **argv, tlist *Astack);
+
+int	append_node(tlist *Astack, char *buf, int size);
 
 #endif

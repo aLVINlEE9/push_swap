@@ -1,24 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 21:04:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/05 22:52:09 by seungsle         ###   ########.fr       */
+/*   Created: 2022/03/05 21:52:46 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/05 22:35:59 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	parsing(tstacks *stks, int argc, char **argv)
+int	free_list(tlist *stack)
 {
-	int	cnt;
+	tnode	*now;
+	tnode	*tmp;
 
-	if (argc == 1)
-		exit(exception_print("there is no input value"));
-	create_stack(&stks);
-	if (split_to_stack(argv, stks->Astack))
-		exit(1);
+	now = stack->head;
+	while(now != NULL)
+	{
+		tmp = now;
+		free(tmp);
+		now = now->next;
+	}
+	free(stack);
+	return (1);
+}
+
+int	free_stack(tlist *stack)
+{
+	free(stack);
+	return (1);
+}
+
+int	free_headtail(tnode *node)
+{
+	free(node);
+	return (1);
 }

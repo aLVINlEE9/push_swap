@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 21:57:09 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/03 22:32:46 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/05 21:05:34 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 int main(int argc, char **argv)
 {
-	tlist	*Astack;
-	tlist	*Bstack;
-	tcommand	cmd;
+	tstacks	*stks;
 	
-	parsing(Astack, Bstack, argc, argv);
+	parsing(&stks, argc, argv);
 }

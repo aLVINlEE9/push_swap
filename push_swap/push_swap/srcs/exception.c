@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   exception.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 21:04:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/05 22:52:09 by seungsle         ###   ########.fr       */
+/*   Created: 2022/03/05 21:10:21 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/05 23:07:56 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	parsing(tstacks *stks, int argc, char **argv)
+int	exception_print(char *str)
 {
-	int	cnt;
+	write(1, "[Exception Occurred : ", 22);
+	write(1, str, (int)ft_strlen(str));
+	write(1, "]", 1);
+	return (1);
+}
 
-	if (argc == 1)
-		exit(exception_print("there is no input value"));
-	create_stack(&stks);
-	if (split_to_stack(argv, stks->Astack))
-		exit(1);
+int	exception_parsing_string(char *str, int size)
+{
+	int	i;
+}
+
+int	exception_parsing_number(long long ret)
+{
+	
 }

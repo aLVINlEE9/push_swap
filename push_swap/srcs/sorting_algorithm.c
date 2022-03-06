@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sorting_algorithm.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 21:57:09 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/05 23:44:21 by seungsle         ###   ########.fr       */
+/*   Created: 2022/03/06 20:07:59 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/06 20:48:59 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int main(int argc, char **argv)
+void	insertion_sort(tlist *Astack, tlist *Bstack)
 {
-	tstacks	stks;
 	
-	parsing(&stks, argc, argv);
-	return (0);
+}
+
+void	simple_sort(tlist *Astack, tlist *Bstack)
+{
+	
+}
+
+void	sorting_algorithm(tstacks *stks)
+{
+	tlist	*Astack;
+	tlist	*Bstack;
+
+	Astack = stks->Astack;
+	Bstack = stks->Bstack;
+	if (Astack->count <= 3)
+		simple_sort(Astack, Bstack);
+	else
+		insertion_sort(Astack, Bstack);
 }

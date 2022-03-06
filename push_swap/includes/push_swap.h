@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/03 21:19:44 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/06 22:54:39 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,6 @@
 # define TRUE 1
 # define FALSE 0
 
-typedef struct scommand{
-	int ra;
-	int rb;
-	int rr;
-	int rra;
-	int rrb;
-	int rrr;
-	int sa;
-	int sb;
-	int ss;
-} tcommand;
-
 typedef struct snode{
 	int data;
 	struct snode *prev;
@@ -45,54 +33,40 @@ typedef struct slist{
 	tnode *tail;
 } tlist;
 
-void	free_and_exit(char **buf_1, long long *buf_2);
-void	free_splited_char(char **splited_char);
+typedef struct sstacks{
+	tlist *Astack;
+	tlist *Bstack;
+}	tstacks;
+
+void	parsing(tstacks *stks, int argc, char **argv);
 
 int	exception_print(char *str);
-int	sort_check_arr(long long *arr, int idx);
-int	exception_checker_1(char *splited_char);
-int	exception_checker_2(long long buf);
-int	exception_checker_3(long long *buf, int idx);
+int	exception_parsing_string(char *buf);
+int	exception_parsing_number(long long buf);
+int	exception_parsing_sort(tlist *Astack);
+int	check_sort(tlist *stack);
 
-void	get_arr(char **splited_char, long long *arr);
-long long	*parsing(int argc, char **argv, int idx);
-int	count_idx(char **argv);
+void	create_stack(tstacks *stks);
+int	create_list(tlist *stack);
 
-void	ft_split(char **argv, char **ret, int idx, int i);
-int	ft_idx(char *buf, char c);
-void	ft_malloc_error(char **ret);
+int	free_list(tlist *stack);
+int	free_stack(tlist *stack);
+int	free_node(tnode *node);
 
-char	*ft_strchr(const char *s, int c);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-void	*ft_memchr(const void *s, int c, size_t n);
+tnode	*create_node(int data);
+
 size_t	ft_strlen(const char *s);
-long long	ft_atoi(const char *str);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+long long	ft_atol(const char *str);
+int	split_to_stack(char **argv, tlist *Astack);
 
-tnode *createNode(int data);
-void initList(tlist *list);
-void initNode(tlist *List, long long *arr, int idx);
-void printNode(tlist *list);
+int	append_node(tlist *Astack, char *buf, size_t size);
 
-void appendNode(tlist *list, int data);
-void push(tlist *list, int data);
-int pop(tlist *list);
-void rotate(tlist *list);
-void reverse_rotate(tlist *list);
-void swap(tlist *list);
+void	print_node(tlist *stack);
 
-void simple_sort(tlist *Astack, tlist *Bstack);
-void sort(tlist *Astack, tlist *Bstack, tcommand *command);
-
-int action_rra(tlist *Stack);
-int action_rrb(tlist *Stack);
-int action_rrr(tlist *Astack, tlist *Bstack);
-int action_ra(tlist *Stack);
-int action_rb(tlist *Stack);
-int action_rr(tlist *Astack, tlist *Bstack);
-int action_sa(tlist *Stack);
-int action_sb(tlist *Stack);
-int action_ss(tlist *Astack, tlist *Bstack);
-int action_pb(tlist *pop_stack, tlist *push_stack);
-int action_pa(tlist *push_stack, tlist *pop_stack);
+void	rotate(tlist *stack);
+void	reverse_rotate(tlist *stack);
+void	push_pop(tlist *push, tlist* pop);
+void	swap(tlist *stack);
 
 #endif

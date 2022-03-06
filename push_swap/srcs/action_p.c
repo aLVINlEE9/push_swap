@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exception_2.c                                      :+:      :+:    :+:   */
+/*   action_p.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/31 12:55:11 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/24 16:35:17 by seungsle         ###   ########.fr       */
+/*   Created: 2022/03/06 22:25:24 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/06 22:46:45 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	free_and_exit(char **buf_1, long long *buf_2)
+void	pa(tstacks *stks)
 {
-	free_splited_char(buf_1);
-	free(buf_2);
-	exit(1);
+	tlist	*Astack;
+	tlist	*Bstack;
+
+	Astack = stks->Astack;
+	Bstack = stks->Bstack;
+	push_pop(Bstack, Astack);
 }
 
-void	free_splited_char(char **splited_char)
+void	pb(tstacks *stks)
 {
-	int	i;
+	tlist	*Astack;
+	tlist	*Bstack;
 
-	i = 0;
-	while (splited_char[i])
-	{
-		free(splited_char[i++]);
-	}
-	free(splited_char);
-	return ;
+	Astack = stks->Astack;
+	Bstack = stks->Bstack;
+	push_pop(Astack, Bstack);
 }

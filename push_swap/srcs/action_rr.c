@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   action_2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/18 11:12:09 by seungsle          #+#    #+#             */
-/*   Updated: 2021/05/21 17:20:28 by seungsle         ###   ########.fr       */
+/*   Created: 2022/03/06 22:20:13 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/06 22:24:17 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	rra(tstacks *stks)
 {
-	t_list	*temp;
+	tlist	*Astack;
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
-		*lst = new;
-	else
-	{
-		temp = *lst;
-		new->next = temp;
-		*lst = new;
-	}
-	return ;
+	Astack = stks->Astack;
+	reverse_rotate(Astack);
+}
+
+void	rrb(tstacks *stks)
+{
+	tlist	*Bstack;
+
+	Bstack = stks->Bstack;
+	reverse_rotate(Bstack);
+}
+
+void	rrr(tstacks *stks)
+{
+	rra(stks);
+	rrb(stks);
 }

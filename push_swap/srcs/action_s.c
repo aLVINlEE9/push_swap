@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   action_s.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 16:12:22 by seungsle          #+#    #+#             */
-/*   Updated: 2021/05/23 14:57:23 by seungsle         ###   ########.fr       */
+/*   Created: 2022/03/06 22:27:40 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/06 22:55:40 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	sa(tstacks *stks)
 {
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
-	return ;
+	tlist	*Astack;
+
+	Astack = stks->Astack;
+	swap(Astack);
+}
+
+void	sb(tstacks *stks)
+{
+	tlist	*Bstack;
+
+	Bstack = stks->Bstack;
+	swap(Bstack);
+}
+
+void	ss(tstacks *stks)
+{
+	sa(stks);
+	sb(stks);
 }

@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 16:22:40 by seungsle          #+#    #+#             */
-/*   Updated: 2021/05/17 16:03:53 by seungsle         ###   ########.fr       */
+/*   Created: 2022/03/06 20:34:22 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/06 22:19:42 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ra(tstacks *stks)
 {
-	size_t			i;
-	unsigned char	*s1_u;
-	unsigned char	*s2_u;
+	tlist	*Astack;
 
-	i = 0;
-	s1_u = (unsigned char *)s1;
-	s2_u = (unsigned char *)s2;
-	if (n == 0)
-		return (0);
-	while (*s1_u && *s2_u && i++ < n - 1)
-	{
-		if (*s1_u != *s2_u)
-		{
-			return (*s1_u - *s2_u);
-		}
-		s1_u++;
-		s2_u++;
-	}
-	return (*s1_u - *s2_u);
+	Astack = stks->Astack;
+	rotate(Astack);
+}
+
+void	rb(tstacks *stks)
+{
+	tlist	*Bstack;
+	
+	Bstack = stks->Bstack;
+	rotate(Bstack);
+}
+
+void	rr(tstacks *stks)
+{
+	ra(stks);
+	rb(stks);
 }

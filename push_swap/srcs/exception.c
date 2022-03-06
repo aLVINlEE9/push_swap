@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exception_1.c                                      :+:      :+:    :+:   */
+/*   exception.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 17:35:09 by seungsle          #+#    #+#             */
-/*   Updated: 2022/02/25 11:47:25 by seungsle         ###   ########.fr       */
+/*   Created: 2022/03/05 21:10:21 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/06 20:01:59 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	sort_check_arr(long long *arr, int idx)
+int	exception_print(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (i < idx - 1)
-	{
-		if (arr[i] < arr[i + 1])
-		{
-			i++;
-			continue ;
-		}
-		else
-			return (1);
-	}
-	return (0);
+	write(1, "[Exception Occurred : ", 22);
+	write(1, str, (int)ft_strlen(str));
+	write(1, "]", 1);
+	return (1);
 }
 
-int	exception_checker_1(char *buf)
+int	exception_parsing_string(char *buf)
 {
 	int	i;
 
@@ -58,7 +48,7 @@ int	exception_checker_1(char *buf)
 	return (0);
 }
 
-int	exception_checker_2(long long buf)
+int	exception_parsing_number(long long buf)
 {
 	if (!(buf >= INT_MIN && buf <= INT_MAX))
 		return (exception_print("one of input value is not in \
@@ -66,32 +56,45 @@ int	exception_checker_2(long long buf)
 	return (0);
 }
 
-int	exception_checker_3(long long *buf, int idx)
+int	check_sort(tlist *stack)
 {
+	tnode	*now;
+	int	cnt;
+
+	now = stack->head->next;
+	cnt = -1;
+	while(++cnt < stack->count - 1)
+	{
+		if (now->data > now->next->data)
+			return (0);
+		now = now->next;
+	}
+	return (1);
+}
+
+int	exception_parsing_sort(tlist *Astack)
+{
+	tnode	*now;
+	tnode	*tmp;
 	int	i;
 	int	j;
 
-	i = 1;
-	if (!sort_check_arr(buf, idx))
+	if (check_sort(Astack))
 		return (exception_print("input values are already sorted"));
-	while (i <= idx)
+	now = Astack->head->next;
+	i = -1;
+	while(++i < Astack->count - 1)
 	{
-		j = 0;
-		while (j < i)
+		j = i;
+		tmp = now->next;
+		while(j < Astack->count - 1)
 		{
-			if (buf[j] == buf[i])
-				return (exception_print("input values have same numbers"));
+			if (now->data == tmp->data)
+				return (exception_print("there are same numbers in input values"));
+			tmp = tmp->next;
 			j++;
 		}
-		i++;
+		now = now->next;
 	}
 	return (0);
-}
-
-int	exception_print(char *str)
-{
-	write(1, "[Exception Occurred : ", 22);
-	write(1, str, (int)ft_strlen(str));
-	write(1, "]", 1);
-	return (1);
 }

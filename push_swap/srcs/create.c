@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:31:52 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/05 22:46:21 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/06 23:24:28 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,16 @@ int	create_list(tlist *stack)
 	return (0);
 }
 
-void	create_stack(tstacks *stks)
+void	create_stack(tdata *data)
 {
-	stks->Astack = (tlist *)malloc(sizeof(tlist));
-	if (stks->Astack == NULL)
+	data->Astack = (tlist *)malloc(sizeof(tlist));
+	if (data->Astack == NULL)
 		exit(exception_print("Astack malloc failed"));
-	if (create_list(stks->Astack))
-		exit(free_stack(stks->Astack));
-	stks->Bstack = (tlist *)malloc(sizeof(tlist));
-	if (stks->Bstack == NULL)
-		exit(exception_print("Bstack malloc failed") && free_list(stks->Astack));
-	if (create_list(stks->Bstack))
-		exit(free_list(stks->Astack) && free_stack(stks->Bstack));
+	if (create_list(data->Astack))
+		exit(free_stack(data->Astack));
+	data->Bstack = (tlist *)malloc(sizeof(tlist));
+	if (data->Bstack == NULL)
+		exit(exception_print("Bstack malloc failed") && free_list(data->Astack));
+	if (create_list(data->Bstack))
+		exit(free_list(data->Astack) && free_stack(data->Bstack));
 }

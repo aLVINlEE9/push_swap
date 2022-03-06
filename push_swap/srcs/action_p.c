@@ -6,28 +6,28 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 22:25:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/06 22:46:45 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/06 23:22:13 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	pa(tstacks *stks)
+void	pa(tdata *data)
 {
 	tlist	*Astack;
 	tlist	*Bstack;
 
-	Astack = stks->Astack;
-	Bstack = stks->Bstack;
+	Astack = data->Astack;
+	Bstack = data->Bstack;
 	push_pop(Bstack, Astack);
 }
 
-void	pb(tstacks *stks)
+void	pb(tdata *data)
 {
 	tlist	*Astack;
 	tlist	*Bstack;
 
-	Astack = stks->Astack;
-	Bstack = stks->Bstack;
+	Astack = data->Astack;
+	Bstack = data->Bstack;
 	push_pop(Astack, Bstack);
 }

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/06 22:54:39 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/06 23:27:38 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,34 @@
 # define FALSE 0
 
 typedef struct snode{
-	int data;
-	struct snode *prev;
-	struct snode *next;
+	int	data;
+	struct snode	*prev;
+	struct snode	*next;
 } tnode;
 
 typedef struct slist{
-	int count;
-	tnode *head;
-	tnode *tail;
-} tlist;
+	int	count;
+	tnode	*head;
+	tnode	*tail;
+}	tlist;
 
-typedef struct sstacks{
-	tlist *Astack;
-	tlist *Bstack;
-}	tstacks;
+typedef struct sactions{
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+}	tactions;
 
-void	parsing(tstacks *stks, int argc, char **argv);
+typedef struct sdata{
+	void	(*function)(struct sdata *);
+	tactions	*actions;
+	tlist	*Astack;
+	tlist	*Bstack;
+}	tdata;
+
+void	parsing(tdata *data, int argc, char **argv);
 
 int	exception_print(char *str);
 int	exception_parsing_string(char *buf);
@@ -46,7 +57,7 @@ int	exception_parsing_number(long long buf);
 int	exception_parsing_sort(tlist *Astack);
 int	check_sort(tlist *stack);
 
-void	create_stack(tstacks *stks);
+void	create_stack(tdata *data);
 int	create_list(tlist *stack);
 
 int	free_list(tlist *stack);
@@ -69,4 +80,5 @@ void	reverse_rotate(tlist *stack);
 void	push_pop(tlist *push, tlist* pop);
 void	swap(tlist *stack);
 
+void	sorting_algorithm(tdata *data);
 #endif

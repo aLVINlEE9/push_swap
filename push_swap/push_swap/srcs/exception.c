@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:10:21 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/06 01:06:55 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/06 20:01:04 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int	exception_parsing_sort(tlist *Astack)
 			tmp = tmp->next;
 			j++;
 		}
+		now = now->next;
 	}
 	return (0);
 }

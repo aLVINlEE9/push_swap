@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 23:16:36 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/06 01:12:40 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/06 19:56:01 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ int	append_node(tlist *Astack, char *buf, size_t size)
 			newNode = create_node((int)ret);
 			if (newNode == NULL)
 				return (1);
-			newNode = Astack->tail->prev->next;
+			Astack->tail->prev->next = newNode;
 			newNode->prev = Astack->tail->prev;
-			Astack->tail->prev = newNode;
 			newNode->next = Astack->tail;
+			Astack->tail->prev = newNode;
 			Astack->count++;
 		}
 	}
@@ -103,7 +103,7 @@ int	split_to_stack(char **argv, tlist *Astack)
 	char	*s;
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (argv[i])
 	{
 		s = argv[i];

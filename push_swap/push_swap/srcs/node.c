@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 22:58:23 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/06 01:10:49 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/06 16:44:13 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	print_node(tlist *stack)
 
 	now = stack->head->next;
 	cnt = -1;
-	while(++cnt < stack->count)
+	while (++cnt < stack->count)
 	{
 		printf("%d\n", now->data);
 		now = now->next;

@@ -6,12 +6,12 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/06 17:48:47 by seungsle          #+#    #+#              #
-#    Updated: 2022/03/05 23:35:37 by seungsle         ###   ########.fr        #
+#    Updated: 2022/03/06 16:57:53 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= pushswap
-CC		= gcc
+CC		= gcc -g
 CFLAG	= -Werror -Wall -Wextra
 SRCS 	=	srcs/create.c		\
 			srcs/exception.c	\

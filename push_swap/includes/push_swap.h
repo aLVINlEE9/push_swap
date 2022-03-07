@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/06 23:27:38 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/07 19:49:12 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,46 @@
 # define TRUE 1
 # define FALSE 0
 
-typedef struct snode{
+typedef struct s_node{
 	int	data;
-	struct snode	*prev;
-	struct snode	*next;
+	struct s_node	*prev;
+	struct s_node	*next;
 } tnode;
 
-typedef struct slist{
+typedef struct s_list{
 	int	count;
 	tnode	*head;
 	tnode	*tail;
 }	tlist;
 
-typedef struct sactions{
+typedef struct s_best_actions{
+	int	ra;
+	int	rb;
+	int	rra;
+	int	rrb;
+}	tbest_actions;
+
+typedef struct s_execute_actions{
 	int	ra;
 	int	rb;
 	int	rr;
 	int	rra;
 	int	rrb;
 	int	rrr;
-}	tactions;
+}	texcute_actions;
 
-typedef struct sdata{
-	void	(*function)(struct sdata *);
-	tactions	*actions;
+typedef struct s_data{
+	void	(*function)(struct s_data *);
+	tbest_actions	*Aacts;
+	tbest_actions	*Bacts;
+	texcute_actions	*exe_acts;
 	tlist	*Astack;
 	tlist	*Bstack;
 }	tdata;
+
+void	pa(tdata *data);
+void	pb(tdata *data);
+
 
 void	parsing(tdata *data, int argc, char **argv);
 

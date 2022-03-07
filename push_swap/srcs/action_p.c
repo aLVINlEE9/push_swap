@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 22:25:24 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/06 23:22:13 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:44:18 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	pa(tdata *data)
 
 	Astack = data->Astack;
 	Bstack = data->Bstack;
-	push_pop(Bstack, Astack);
+	push_pop(Astack, Bstack);
 }
 
 void	pb(tdata *data)
@@ -29,5 +29,5 @@ void	pb(tdata *data)
 
 	Astack = data->Astack;
 	Bstack = data->Bstack;
-	push_pop(Astack, Bstack);
+	push_pop(Bstack, Astack);
 }

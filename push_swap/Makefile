@@ -6,20 +6,26 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/06 17:48:47 by seungsle          #+#    #+#              #
-#    Updated: 2022/03/06 16:57:53 by seungsle         ###   ########.fr        #
+#    Updated: 2022/03/07 14:29:19 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= pushswap
 CC		= gcc -g
 CFLAG	= -Werror -Wall -Wextra
-SRCS 	=	srcs/create.c		\
-			srcs/exception.c	\
-			srcs/free.c		\
-			srcs/node.c			\
+SRCS 	=	srcs/action_p.c				\
+			srcs/action_r.c				\
+			srcs/action_rr.c			\
+			srcs/action_s.c				\
+			srcs/action_util.c			\
+			srcs/create.c				\
+			srcs/exception.c			\
+			srcs/free.c					\
+			srcs/node.c					\
 			srcs/parsing_util.c			\
-			srcs/parsing.c			\
-			srcs/push_swap.c
+			srcs/parsing.c				\
+			srcs/push_swap.c			\
+			srcs/sorting_algorithm.c	\
 
 OBJS 	= ${SRCS:.c=.o}
 INCLUDE	= -I./includes/

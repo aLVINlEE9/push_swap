@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/07 19:49:12 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/11 16:33:18 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,15 @@ typedef struct s_data{
 
 void	pa(tdata *data);
 void	pb(tdata *data);
-
+void	sa(tdata *data);
+void	sb(tdata *data);
+void	ss(tdata *data);
+void	ra(tdata *data);
+void	rb(tdata *data);
+void	rr(tdata *data);
+void	rra(tdata *data);
+void	rrb(tdata *data);
+void	rrr(tdata *data);
 
 void	parsing(tdata *data, int argc, char **argv);
 
@@ -94,4 +102,7 @@ void	push_pop(tlist *push, tlist* pop);
 void	swap(tlist *stack);
 
 void	sorting_algorithm(tdata *data);
+
+void	sort_2(tdata *data);
+void	sort_3(tdata *data);
 #endif

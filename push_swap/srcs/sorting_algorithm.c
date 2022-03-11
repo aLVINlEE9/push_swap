@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:07:59 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/07 19:56:59 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/11 16:48:18 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,9 @@ void	choose_best_actions_forA(tdata *data)
 
 void	choose_best_actions_forB(tdata *data)
 {
-	tlist	*Bstack;
-	tnode	*now;
 	tbest_actions	*Bacts;
-	int	cnt;
-	int	top;
-	int	buf;
-
-	Bstack = data->Bstack;
-	now = Bstack->head->next;
-	Bacts = data->Bacts;
-	top = now->data;
-	cnt = -1;
-	while(++cnt < Bstack->count - 1)
-	{
-		now = now->next;
-		buf = now->data;
-		if (top > buf)
-	}
-
+	
+	while()
 }
 
 void	init_actions(tbest_actions *Aact, tbest_actions *Bact)
@@ -70,19 +54,15 @@ void	insertion_sort(tdata *data)
 	choose_best_actions(data);
 }
 
-void	simple_sort(tdata *data)
-{
-	tnode	*now;
-
-	now = data->Astack->head->next;
-	if (data->Astack->count == 2)
-		if ()
-}
-
 void	sorting_algorithm(tdata *data)
 {
-	if (data->Astack->count <= 3)
-		simple_sort(data);
-	else
+	tlist	*Astack;
+
+	Astack = data->Astack;
+	if (Astack->count == 2)
+		sort_2(data);
+	else if (Astack->count == 3)
+		sort_3(data);
+	else if (Astack->count > 3)
 		insertion_sort(data);
 }

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 22:27:40 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/06 23:23:03 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/11 15:41:43 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	sa(tdata *data)
 	tlist	*Astack;
 
 	Astack = data->Astack;
-	swap(Astack);
+	if (Astack->count > 1)
+		swap(Astack);
 }
 
 void	sb(tdata *data)
@@ -25,11 +26,15 @@ void	sb(tdata *data)
 	tlist	*Bstack;
 
 	Bstack = data->Bstack;
-	swap(Bstack);
+	if (Bstack->count > 1)
+		swap(Bstack);
 }
 
 void	ss(tdata *data)
 {
-	sa(data);
-	sb(data);
+	if (data->Astack->count > 1 && data->Bstack->count > 1)
+	{
+		sa(data);
+		sb(data);
+	}
 }

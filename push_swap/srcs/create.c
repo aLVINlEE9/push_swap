@@ -6,11 +6,20 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:31:52 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/06 23:24:28 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/14 18:20:37 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	init_stack(tlist *stack)
+{
+	stack->count = 0;
+	stack->max[0] = 0;
+	stack->max[1] = 0;
+	stack->max[2] = 0;
+	stack->min = 0;
+}
 
 int	create_list(tlist *stack)
 {
@@ -34,16 +43,18 @@ int	create_list(tlist *stack)
 	return (0);
 }
 
-void	create_stack(tdata *data)
+void	create_stack(tdatas *datas)
 {
-	data->Astack = (tlist *)malloc(sizeof(tlist));
-	if (data->Astack == NULL)
+	datas->Astack = (tlist *)malloc(sizeof(tlist));
+	if (datas->Astack == NULL)
 		exit(exception_print("Astack malloc failed"));
-	if (create_list(data->Astack))
-		exit(free_stack(data->Astack));
-	data->Bstack = (tlist *)malloc(sizeof(tlist));
-	if (data->Bstack == NULL)
-		exit(exception_print("Bstack malloc failed") && free_list(data->Astack));
-	if (create_list(data->Bstack))
-		exit(free_list(data->Astack) && free_stack(data->Bstack));
+	if (create_list(datas->Astack))
+		exit(free_stack(datas->Astack));
+	init_stack(datas->Astack);
+	datas->Bstack = (tlist *)malloc(sizeof(tlist));
+	if (datas->Bstack == NULL)
+		exit(exception_print("Bstack malloc failed") && free_list(datas->Astack));
+	if (create_list(datas->Bstack))
+		exit(free_list(datas->Astack) && free_stack(datas->Bstack));
+	init_stack(datas->Bstack);
 }

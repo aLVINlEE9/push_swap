@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/11 16:33:18 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/14 18:33:50 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_node{
 
 typedef struct s_list{
 	int	count;
+	int	min;
+	int	max[3];
 	tnode	*head;
 	tnode	*tail;
 }	tlist;
@@ -47,30 +49,30 @@ typedef struct s_execute_actions{
 	int	rra;
 	int	rrb;
 	int	rrr;
+	int	count;
 }	texcute_actions;
 
-typedef struct s_data{
+typedef struct s_datas{
 	void	(*function)(struct s_data *);
-	tbest_actions	*Aacts;
-	tbest_actions	*Bacts;
+	tbest_actions	*acts;
 	texcute_actions	*exe_acts;
 	tlist	*Astack;
 	tlist	*Bstack;
-}	tdata;
+}	tdatas;
 
-void	pa(tdata *data);
-void	pb(tdata *data);
-void	sa(tdata *data);
-void	sb(tdata *data);
-void	ss(tdata *data);
-void	ra(tdata *data);
-void	rb(tdata *data);
-void	rr(tdata *data);
-void	rra(tdata *data);
-void	rrb(tdata *data);
-void	rrr(tdata *data);
+void	pa(tdatas *datas);
+void	pb(tdatas *datas);
+void	sa(tdatas *datas);
+void	sb(tdatas *datas);
+void	ss(tdatas *datas);
+void	ra(tdatas *datas);
+void	rb(tdatas *datas);
+void	rr(tdatas *datas);
+void	rra(tdatas *datas);
+void	rrb(tdatas *datas);
+void	rrr(tdatas *datas);
 
-void	parsing(tdata *data, int argc, char **argv);
+void	parsing(tdatas *datas, int argc, char **argv);
 
 int	exception_print(char *str);
 int	exception_parsing_string(char *buf);
@@ -78,7 +80,7 @@ int	exception_parsing_number(long long buf);
 int	exception_parsing_sort(tlist *Astack);
 int	check_sort(tlist *stack);
 
-void	create_stack(tdata *data);
+void	create_stack(tdatas *datas);
 int	create_list(tlist *stack);
 
 int	free_list(tlist *stack);
@@ -101,8 +103,12 @@ void	reverse_rotate(tlist *stack);
 void	push_pop(tlist *push, tlist* pop);
 void	swap(tlist *stack);
 
-void	sorting_algorithm(tdata *data);
+void	sorting_algorithm(tdatas *datas);
 
-void	sort_2(tdata *data);
-void	sort_3(tdata *data);
+void	sort_2(tdatas *datas);
+void	sort_3(tdatas *datas);
+void	set_max_array(tdatas *datas, tlist *stack);
+int	get_max_value(tlist *stack, int threshold);
+void	set_min_value(tdatas *datas, tlist *stack);
+
 #endif

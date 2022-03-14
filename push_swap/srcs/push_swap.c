@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 21:57:09 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/06 23:23:18 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/14 18:02:14 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int main(int argc, char **argv)
 {
-	tdata	data;
+	tdatas	datas;
 	
-	parsing(&data, argc, argv);
-	sorting_algorithm(&data);
+	parsing(&datas, argc, argv);
+	sorting_algorithm(&datas);
 	return (0);
 }

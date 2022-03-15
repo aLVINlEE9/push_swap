@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:07:59 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/15 15:58:19 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/15 21:57:00 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,42 @@ void	merge_best_actions(t_datas *datas)
 /*
 Function Explanation (choose_best_actinos)
 
-	1. while
+	parameter : (int)DATA == a_stack top(7)
+				B_STACK->MIN == min vlaue from b_stack(2)
+				tmp == temporaray value to find max value
+	
+	1. while -> case 1) count max value from top of b_stack
+	
+					{B_STACK->MIN > DATA} : If this condition is true, 
+					It means the DATA from a_stack is minimum value 
+					compare with b_stack
+					-> It just need to sort descending order
+					{now->data >= tmp} : just sort b_stack descending order
+					
+					
+				case 2) count the right place (which DATA is going to be)
+						from top of b_stack
+					
+					{B_STACK->MIN < DATA} : If this condition is true,
+					It means there's value that is less than DATA from a_stack
+					-> It need to find the number that is less than DATA but 
+					biggest number of them
+					{now->data >= tmp} : This condition is to find biggest number
+					{now->data < DATA} : This condition is to limit the biggest
+					number to not over the DATA
+
+		-------------------------
+		|			|			|
+		|			|			|
+		|	*	7	|			|
+		|		3	|			|
+		|		5	|		2	|
+		|			|		9	|
+		|	a_stack	|	b_stack	|
+		--------------------------
+	
+	2. merge_best_actions : compare all available commands and make it most 
+							efficient way
 */
 
 void	choose_best_actions_sub(t_datas *datas, int data)

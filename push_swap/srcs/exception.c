@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:10:21 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/06 20:01:59 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/15 12:25:58 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ int	exception_parsing_number(long long buf)
 	return (0);
 }
 
-int	check_sort(tlist *stack)
+int	check_sort(t_list *stack)
 {
-	tnode	*now;
-	int	cnt;
+	t_node	*now;
+	int		cnt;
 
 	now = stack->head->next;
 	cnt = -1;
-	while(++cnt < stack->count - 1)
+	while (++cnt < stack->count - 1)
 	{
 		if (now->data > now->next->data)
 			return (0);
@@ -72,25 +72,26 @@ int	check_sort(tlist *stack)
 	return (1);
 }
 
-int	exception_parsing_sort(tlist *Astack)
+int	exception_parsing_sort(t_list *a_stack)
 {
-	tnode	*now;
-	tnode	*tmp;
-	int	i;
-	int	j;
+	t_node	*now;
+	t_node	*tmp;
+	int		i;
+	int		j;
 
-	if (check_sort(Astack))
+	if (check_sort(a_stack))
 		return (exception_print("input values are already sorted"));
-	now = Astack->head->next;
+	now = a_stack->head->next;
 	i = -1;
-	while(++i < Astack->count - 1)
+	while (++i < a_stack->count - 1)
 	{
 		j = i;
 		tmp = now->next;
-		while(j < Astack->count - 1)
+		while (j < a_stack->count - 1)
 		{
 			if (now->data == tmp->data)
-				return (exception_print("there are same numbers in input values"));
+				return (exception_print("there are same numbers \
+				in input values"));
 			tmp = tmp->next;
 			j++;
 		}

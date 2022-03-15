@@ -6,13 +6,13 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:31:52 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/14 18:20:37 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/15 12:24:59 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	init_stack(tlist *stack)
+void	init_stack(t_list *stack)
 {
 	stack->count = 0;
 	stack->max[0] = 0;
@@ -21,17 +21,18 @@ void	init_stack(tlist *stack)
 	stack->min = 0;
 }
 
-int	create_list(tlist *stack)
+int	create_list(t_list *stack)
 {
-	tnode	*head;
-	tnode	*tail;
-	
-	stack->head = (tnode *)malloc(sizeof(tnode));
+	t_node	*head;
+	t_node	*tail;
+
+	stack->head = (t_node *)malloc(sizeof(t_node));
 	if (stack->head == NULL)
 		return (exception_print("haed malloc failed"));
-	stack->tail = (tnode *)malloc(sizeof(tnode));
+	stack->tail = (t_node *)malloc(sizeof(t_node));
 	if (stack->tail == NULL)
-		return (exception_print("tail malloc failed") && free_node(stack->head));
+		return (exception_print("tail malloc failed") && \
+		free_node(stack->head));
 	head = stack->head;
 	tail = stack->tail;
 	head->data = 0;
@@ -43,18 +44,19 @@ int	create_list(tlist *stack)
 	return (0);
 }
 
-void	create_stack(tdatas *datas)
+void	create_stack(t_datas *datas)
 {
-	datas->Astack = (tlist *)malloc(sizeof(tlist));
-	if (datas->Astack == NULL)
-		exit(exception_print("Astack malloc failed"));
-	if (create_list(datas->Astack))
-		exit(free_stack(datas->Astack));
-	init_stack(datas->Astack);
-	datas->Bstack = (tlist *)malloc(sizeof(tlist));
-	if (datas->Bstack == NULL)
-		exit(exception_print("Bstack malloc failed") && free_list(datas->Astack));
-	if (create_list(datas->Bstack))
-		exit(free_list(datas->Astack) && free_stack(datas->Bstack));
-	init_stack(datas->Bstack);
+	datas->a_stack = (t_list *)malloc(sizeof(t_list));
+	if (datas->a_stack == NULL)
+		exit(exception_print("a_stack malloc failed"));
+	if (create_list(datas->a_stack))
+		exit(free_stack(datas->a_stack));
+	init_stack(datas->a_stack);
+	datas->b_stack = (t_list *)malloc(sizeof(t_list));
+	if (datas->b_stack == NULL)
+		exit(exception_print("b_stack malloc failed") && \
+		free_list(datas->a_stack));
+	if (create_list(datas->b_stack))
+		exit(free_list(datas->a_stack) && free_stack(datas->b_stack));
+	init_stack(datas->b_stack);
 }

@@ -6,16 +6,16 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:32:35 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/14 18:33:41 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/15 12:29:51 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	get_max_value(tlist *stack, int threshold)
+int	get_max_value(t_list *stack, int threshold)
 {
-	tnode	*now;
-	int	tmp;
+	t_node	*now;
+	int		tmp;
 
 	now = stack->head->next;
 	tmp = INT_MIN;
@@ -28,17 +28,17 @@ int	get_max_value(tlist *stack, int threshold)
 	return (tmp);
 }
 
-void	set_max_array(tdatas *datas, tlist *stack)
+void	set_max_array(t_datas *datas, t_list *stack)
 {
 	stack->max[0] = get_max_value(stack, INT_MAX);
 	stack->max[1] = get_max_value(stack, stack->max[0]);
 	stack->max[2] = get_max_value(stack, stack->max[1]);
 }
 
-void	set_min_value(tdatas *datas, tlist *stack)
+void	set_min_value(t_datas *datas, t_list *stack)
 {
-	tnode	*now;
-	int	tmp;
+	t_node	*now;
+	int		tmp;
 
 	now = stack->head->next;
 	tmp = INT_MAX;
@@ -51,24 +51,24 @@ void	set_min_value(tdatas *datas, tlist *stack)
 	stack->min = tmp;
 }
 
-void	sort_2(tdatas *datas)
+void	sort_2(t_datas *datas)
 {
-	tlist	*Astack;
-	tnode	*now;
-	
-	Astack = datas->Astack;
-	now = Astack->head->next;
+	t_list	*a_stack;
+	t_node	*now;
+
+	a_stack = datas->a_stack;
+	now = a_stack->head->next;
 	if (now->data > now->next->data)
 		sa(datas);
 }
 
-void	sort_3(tdatas *datas)
+void	sort_3(t_datas *datas)
 {
-	tnode	*a;
-	tnode	*b;
-	tnode	*c;
+	t_node	*a;
+	t_node	*b;
+	t_node	*c;
 
-	a = datas->Astack->head->next;
+	a = datas->a_stack->head->next;
 	b = a->next;
 	c = b->next;
 	if (a->data < b->data && b->data > c->data && c->data > a->data)

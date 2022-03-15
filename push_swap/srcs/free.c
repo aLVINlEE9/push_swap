@@ -6,19 +6,19 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:52:46 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/05 23:37:00 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/15 12:26:19 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	free_list(tlist *stack)
+int	free_list(t_list *stack)
 {
-	tnode	*now;
-	tnode	*tmp;
+	t_node	*now;
+	t_node	*tmp;
 
 	now = stack->head;
-	while(now != NULL)
+	while (now != NULL)
 	{
 		tmp = now;
 		free(tmp);
@@ -28,13 +28,13 @@ int	free_list(tlist *stack)
 	return (1);
 }
 
-int	free_stack(tlist *stack)
+int	free_stack(t_list *stack)
 {
 	free(stack);
 	return (1);
 }
 
-int	free_node(tnode *node)
+int	free_node(t_node *node)
 {
 	free(node);
 	return (1);

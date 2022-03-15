@@ -6,59 +6,85 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:07:59 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/14 18:43:02 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/15 12:32:18 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	choose_best_actions_sub(tdatas *datas, int data, int ra, int rra)
+void	merge_best_actions(t_datas *datas, int ra, int rb)
 {
-	tlist	*Bstack;
-	tnode	*now;
-	tbest_actions	*acts;
-	int	count;
+	int					rra;
+	int					rrb;
+	t_excute_actions	*exe_act;
+	t_list				*a_stack;
+	t_list				*b_stack;
 
-	Bstack = datas->Bstack;
-	now = Bstack->head->next;
-	acts = datas->acts;
-	set_min_value(datas, Bstack);
-	if (Bstack->min < data)
-		
+	rra = ra - a_stack->count;
+	rrb = rb - b_stack->count;
 }
 
-void	choose_best_actions(tdatas *datas)
+void	choose_best_actions_sub(t_datas *datas, int data, int ra)
 {
-	tlist	*Astack;
-	tnode	*now;
-	int	cnt;
+	t_list			*b_stack;
+	t_node			*now;
+	t_best_actions	*acts;
+	int				tmp;
+	int				i;
 
-	Astack = datas->Astack;
-	now = Astack->head->next;
-	cnt = -1;
-	while (++cnt < Astack->count)
+	b_stack = datas->b_stack;
+	now = b_stack->head->next;
+	acts = datas->acts;
+	tmp = INT_MIN;
+	i = 0;
+	while (now != b_stack->tail && ++i)
 	{
-		choose_best_actions_sub(datas, now->data, cnt, Astack->count - cnt);
+		if (b_stack->min > data && now->data >= tmp)
+		{
+			tmp = now->data;
+		}
+		if (b_stack->min < data && now->data >= tmp && now->data < data)
+		{
+			tmp = now->data;
+		}
+		now = now->next;
+	}
+	merge_best_actions(datas, ra, rb);
+}
+
+void	choose_best_actions(t_datas *datas)
+{
+	t_list	*a_stack;
+	t_node	*now;
+	int		cnt;
+
+	a_stack = datas->a_stack;
+	now = a_stack->head->next;
+	cnt = -1;
+	set_min_value(datas, datas->b_stack);
+	while (++cnt < a_stack->count)
+	{
+		choose_best_actions_sub(datas, now->data, cnt);
 	}
 }
 
-void	insertion_sort(tdatas *datas)
+void	insertion_sort(t_datas *datas)
 {
-	set_max_array(datas, datas->Astack);
+	set_max_array(datas, datas->a_stack);
 	pb(datas);
 	pb(datas);
 	choose_best_actions(datas);
 }
 
-void	sorting_algorithm(tdatas *datas)
+void	sorting_algorithm(t_datas *datas)
 {
-	tlist	*Astack;
+	t_list	*a_stack;
 
-	Astack = datas->Astack;
-	if (Astack->count == 2)
+	a_stack = datas->a_stack;
+	if (a_stack->count == 2)
 		sort_2(datas);
-	else if (Astack->count == 3)
+	else if (a_stack->count == 3)
 		sort_3(datas);
-	else if (Astack->count > 3)
+	else if (a_stack->count > 3)
 		insertion_sort(datas);
 }

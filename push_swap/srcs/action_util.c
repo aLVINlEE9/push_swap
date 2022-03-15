@@ -6,17 +6,17 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 22:03:04 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/14 18:05:29 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/15 12:23:50 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rotate(tlist *stack)
+void	rotate(t_list *stack)
 {
-	tnode	*first;
-	tnode	*last;
-	tnode	*move;
+	t_node	*first;
+	t_node	*last;
+	t_node	*move;
 
 	first = stack->head->next->next;
 	move = stack->head->next;
@@ -29,11 +29,11 @@ void	rotate(tlist *stack)
 	stack->tail->prev = move;
 }
 
-void	reverse_rotate(tlist *stack)
+void	reverse_rotate(t_list *stack)
 {
-	tnode	*first;
-	tnode	*last;
-	tnode	*move;
+	t_node	*first;
+	t_node	*last;
+	t_node	*move;
 
 	first = stack->head->next;
 	move = stack->tail->prev;
@@ -46,11 +46,11 @@ void	reverse_rotate(tlist *stack)
 	stack->head->next = move;
 }
 
-void	push_pop(tlist *push, tlist* pop)
+void	push_pop(t_list *push, t_list *pop)
 {
-	tnode	*pop_node;
-	tnode	*push_node;
-	int	poped;
+	t_node	*pop_node;
+	t_node	*push_node;
+	int		poped;
 
 	pop_node = pop->head->next;
 	poped = pop_node->data;
@@ -68,11 +68,11 @@ void	push_pop(tlist *push, tlist* pop)
 	push->count++;
 }
 
-void	swap(tlist *stack)
+void	swap(t_list *stack)
 {
-	tnode	*first;
-	tnode	*second;
-	int	tmp;
+	t_node	*first;
+	t_node	*second;
+	int		tmp;
 
 	first = stack->head->next;
 	second = stack->head->next->next;

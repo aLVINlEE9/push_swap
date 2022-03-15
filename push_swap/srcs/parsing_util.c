@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 23:16:36 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/06 19:56:01 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/15 14:07:18 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,43 +67,11 @@ long long	ft_atol(const char *str)
 	return (ret);
 }
 
-int	append_node(tlist *Astack, char *buf, size_t size)
-{
-	long long	ret;
-	char	sliced;
-	tnode	*newNode;
-	
-	newNode = NULL;
-	ft_strlcpy(&sliced, buf, size);
-	if (exception_parsing_string(&sliced))
-		return (1);
-	else
-	{
-		ret = ft_atol(&sliced);
-		if (exception_parsing_number(ret))
-			return (1);
-		else
-		{
-			newNode = create_node((int)ret);
-			if (newNode == NULL)
-				return (1);
-			Astack->tail->prev->next = newNode;
-			newNode->prev = Astack->tail->prev;
-			newNode->next = Astack->tail;
-			Astack->tail->prev = newNode;
-			Astack->count++;
-		}
-	}
-	return (0);
-}
-
-int	split_to_stack(char **argv, tlist *Astack)
+int	split_to_stack(char **argv, t_list *Astack, int i)
 {
 	char	*buf;
 	char	*s;
-	int	i;
 
-	i = 1;
 	while (argv[i])
 	{
 		s = argv[i];

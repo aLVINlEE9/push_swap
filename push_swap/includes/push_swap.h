@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 18:38:05 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 19:48:57 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ typedef struct s_list{
 typedef struct s_best_actions{
 	int	a[2];
 	int	b[2];
-	int	tmp;
 }	t_best_actions;
 
 /*
@@ -66,26 +65,26 @@ typedef struct s_execute_actions{
 	int	b[2];
 	int	r[2];
 	int	count;
-}	t_excute_actions;
+}	t_exe_acts;
 
 typedef struct s_datas{
 	t_best_actions		*b_acts;
-	t_excute_actions	*exe_acts;
+	t_exe_acts			*exe_acts;
 	t_list				*a_stack;
 	t_list				*b_stack;
 }	t_datas;
 
-void		pa(t_datas *datas);
-void		pb(t_datas *datas);
-void		sa(t_datas *datas);
-void		sb(t_datas *datas);
-void		ss(t_datas *datas);
-void		ra(t_datas *datas);
-void		rb(t_datas *datas);
-void		rr(t_datas *datas);
-void		rra(t_datas *datas);
-void		rrb(t_datas *datas);
-void		rrr(t_datas *datas);
+void		pa(t_datas *datas, int cnt);
+void		pb(t_datas *datas, int cnt);
+void		sa(t_datas *datas, int cnt);
+void		sb(t_datas *datas, int cnt);
+void		ss(t_datas *datas, int cnt);
+void		ra(t_datas *datas, int cnt);
+void		rb(t_datas *datas, int cnt);
+void		rr(t_datas *datas, int cnt);
+void		rra(t_datas *datas, int cnt);
+void		rrb(t_datas *datas, int cnt);
+void		rrr(t_datas *datas, int cnt);
 
 void		parsing(t_datas *datas, int argc, char **argv);
 
@@ -126,5 +125,7 @@ void		set_max_value(t_datas *datas, t_list *stack);
 void		set_min_value(t_datas *datas, t_list *stack);
 
 void		merge_best_actions_sub(t_datas *datas, int a, int b);
-
+void		init_best_actions(t_datas *dats);
+void		action_exe(t_datas *datas, char *action, int cnt);
+void		init_datas(t_datas *datas);
 #endif

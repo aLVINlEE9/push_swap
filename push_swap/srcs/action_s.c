@@ -6,35 +6,41 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 22:27:40 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/15 12:22:57 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 19:38:16 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(t_datas *datas)
+void	sa(t_datas *datas, int cnt)
 {
 	t_list	*a_stack;
+	int		i;
 
 	a_stack = datas->a_stack;
+	i = -1;
 	if (a_stack->count > 1)
-		swap(a_stack);
+		while (++i < cnt)
+			swap(a_stack);
 }
 
-void	sb(t_datas *datas)
+void	sb(t_datas *datas, int cnt)
 {
 	t_list	*b_stack;
+	int		i;
 
 	b_stack = datas->b_stack;
+	i = -1;
 	if (b_stack->count > 1)
-		swap(b_stack);
+		while (++i < cnt)
+			swap(b_stack);
 }
 
-void	ss(t_datas *datas)
+void	ss(t_datas *datas, int cnt)
 {
 	if (datas->a_stack->count > 1 && datas->b_stack->count > 1)
 	{
-		sa(datas);
-		sb(datas);
+		sa(datas, cnt);
+		sb(datas, cnt);
 	}
 }

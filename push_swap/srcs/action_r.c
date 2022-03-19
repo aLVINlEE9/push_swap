@@ -6,30 +6,36 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:34:22 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/15 12:21:52 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 19:36:22 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ra(t_datas *datas)
+void	ra(t_datas *datas, int cnt)
 {
 	t_list	*a_stack;
+	int		i;
 
 	a_stack = datas->a_stack;
-	rotate(a_stack);
+	i = -1;
+	while (++i < cnt)
+		rotate(a_stack);
 }
 
-void	rb(t_datas *datas)
+void	rb(t_datas *datas, int cnt)
 {
 	t_list	*b_stack;
+	int		i;
 
 	b_stack = datas->b_stack;
-	rotate(b_stack);
+	i = -1;
+	while (++i < cnt)
+		rotate(b_stack);
 }
 
-void	rr(t_datas *datas)
+void	rr(t_datas *datas, int cnt)
 {
-	ra(datas);
-	rb(datas);
+	ra(datas, cnt);
+	rb(datas, cnt);
 }

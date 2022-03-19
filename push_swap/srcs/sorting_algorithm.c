@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:07:59 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 18:37:55 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 19:48:43 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,9 +186,16 @@ Function Explanation (insertion_sort)
 
 void	insertion_sort(t_datas *datas)
 {
-	pb(datas);
-	pb(datas);
-	choose_best_actions(datas);
+	t_list	*a_stack;
+
+	a_stack = datas->a_stack;
+	action_exe(datas, "pb", 2);
+	while (a_stack->count)
+	{
+		init_datas(datas);
+		choose_best_actions(datas);
+		exe_best_actions(datas);
+	}
 }
 
 /*

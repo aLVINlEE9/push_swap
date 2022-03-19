@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 20:03:13 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:14:31 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,10 +115,13 @@ void		sorting_algorithm(t_datas *datas);
 void		sort_2(t_datas *datas);
 void		sort_3(t_datas *datas);
 void		set_max_value(t_datas *datas, t_list *stack);
-void		set_min_value(t_datas *datas, t_list *stack);
+void		set_min_value(t_list *stack);
 
 void		merge_best_actions_sub(t_datas *datas, int a, int b);
 void		init_best_actions(t_datas *dats);
 void		action_exe(t_datas *datas, char *action, int cnt);
 void		init_datas(t_datas *datas);
+void		exe_best_actions(t_datas *datas);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+size_t		ft_strlen(const char *s);
 #endif

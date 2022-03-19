@@ -6,16 +6,17 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:32:35 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 19:11:16 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:11:12 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	init_best_actions(t_datas *dats)
+void	init_best_actions(t_datas *datas)
 {
 	t_best_actions	*b_acts;
 
+	b_acts = datas->b_acts;
 	b_acts->a[0] = -1;
 	b_acts->a[1] = -1;
 	b_acts->b[0] = -1;
@@ -87,7 +88,7 @@ void	merge_best_actions_sub(t_datas *datas, int a, int b)
 	}
 }
 
-void	set_min_value(t_datas *datas, t_list *stack)
+void	set_min_value(t_list *stack)
 {
 	t_node	*now;
 	int		tmp;

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 19:22:45 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 19:46:28 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:07:00 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	exe_best_actions(t_datas *datas)
 {
 	t_exe_acts	*exe_acts;
 
+	exe_acts = datas->exe_acts;
 	if (exe_acts->a[0] != -1)
 		action_exe(datas, "ra", exe_acts->a[0]);
 	if (exe_acts->a[1] != -1)

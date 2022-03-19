@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:07:59 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 19:48:43 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:13:38 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	merge_best_actions(t_datas *datas)
 	t_best_actions		*b_acts;
 	t_list				*a_stack;
 	t_list				*b_stack;
-	int					tmp;
 
 	b_acts = datas->b_acts;
 	a_stack = datas->a_stack;
@@ -152,7 +151,7 @@ void	choose_best_actions(t_datas *datas)
 	now = a_stack->head->next;
 	b_acts = datas->b_acts;
 	cnt = -1;
-	set_min_value(datas, datas->b_stack);
+	set_min_value(datas->b_stack);
 	while (++cnt < a_stack->count)
 	{
 		b_acts->a[0] = cnt;
@@ -196,6 +195,7 @@ void	insertion_sort(t_datas *datas)
 		choose_best_actions(datas);
 		exe_best_actions(datas);
 	}
+	print_node(datas->b_stack);
 }
 
 /*

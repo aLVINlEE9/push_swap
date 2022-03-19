@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:07:59 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/15 21:57:00 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 18:37:55 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,48 @@
 
 void	merge_best_actions(t_datas *datas)
 {
-	int					rra;
-	int					rrb;
-	t_excute_actions	*exe_act;
+	t_best_actions		*b_acts;
 	t_list				*a_stack;
 	t_list				*b_stack;
+	int					tmp;
 
-	rra = ra - a_stack->count;
-	rrb = rb - b_stack->count;
+	b_acts = datas->b_acts;
+	a_stack = datas->a_stack;
+	b_stack = datas->b_stack;
+	b_acts->a[1] = b_acts->a[0] - a_stack->count;
+	b_acts->b[1] = b_acts->b[0] - b_stack->count;
+	merge_best_actions_sub(datas, 0, 0);
+	merge_best_actions_sub(datas, 0, 1);
+	merge_best_actions_sub(datas, 1, 0);
+	merge_best_actions_sub(datas, 1, 1);
 }
 
 /*
 Function Explanation (choose_best_actinos)
 
-	parameter : (int)DATA == a_stack top(7)
-				B_STACK->MIN == min vlaue from b_stack(2)
+	parameter : (int)`DATA` == a_stack top(7)
+				`B_STACK->MIN` == min vlaue from b_stack(2)
 				tmp == temporaray value to find max value
 	
 	1. while -> case 1) count max value from top of b_stack
 	
-					{B_STACK->MIN > DATA} : If this condition is true, 
-					It means the DATA from a_stack is minimum value 
+					{`B_STACK->MIN` > `DATA`} : If this condition is true, 
+					It means the `DATA` from a_stack is minimum value 
 					compare with b_stack
 					-> It just need to sort descending order
 					{now->data >= tmp} : just sort b_stack descending order
 					
 					
-				case 2) count the right place (which DATA is going to be)
+				case 2) count the right place (which `DATA` is going to be)
 						from top of b_stack
 					
-					{B_STACK->MIN < DATA} : If this condition is true,
-					It means there's value that is less than DATA from a_stack
-					-> It need to find the number that is less than DATA but 
+					{`B_STACK->MIN` < `DATA`} : If this condition is true,
+					It means there's value that is less than `DATA` from a_stack
+					-> It need to find the number that is less than `DATA` but 
 					biggest number of them
 					{now->data >= tmp} : This condition is to find biggest number
-					{now->data < DATA} : This condition is to limit the biggest
-					number to not over the DATA
+					{now->data < `DATA`} : This condition is to limit the biggest
+					number to not over the `DATA`
 
 		-------------------------
 		|			|			|
@@ -59,7 +65,25 @@ Function Explanation (choose_best_actinos)
 		|		5	|		2	|
 		|			|		9	|
 		|	a_stack	|	b_stack	|
-		--------------------------
+		--------------------------	pb
+		-------------------------
+		|			|			|
+		|			|			|
+		|			|			|
+		|	*	3	|		7	|
+		|		5	|		2	|
+		|			|		9	|
+		|	a_stack	|	b_stack	|
+		-------------------------- rb - pb
+		-------------------------
+		|			|			|
+		|			|			|
+		|			|		3	|
+		|			|		2	|
+		|	*	5	|		9	|
+		|			|		7	|
+		|	a_stack	|	b_stack	|
+		-------------------------- pb
 	
 	2. merge_best_actions : compare all available commands and make it most 
 							efficient way
@@ -68,12 +92,12 @@ Function Explanation (choose_best_actinos)
 void	choose_best_actions_sub(t_datas *datas, int data)
 {
 	t_node			*now;
-	t_best_actions	*acts;
+	t_best_actions	*b_acts;
 	int				tmp;
 	int				i;
 
 	now = datas->b_stack->head->next;
-	acts = datas->acts;
+	b_acts = datas->b_acts;
 	tmp = INT_MIN;
 	i = 0;
 	while (now != datas->b_stack->tail && ++i)
@@ -81,12 +105,12 @@ void	choose_best_actions_sub(t_datas *datas, int data)
 		if (datas->b_stack->min > data && now->data >= tmp)
 		{
 			tmp = now->data;
-			acts->rb = i - 1;
+			b_acts->b[0] = i - 1;
 		}
 		if (datas->b_stack->min < data && now->data >= tmp && now->data < data)
 		{
 			tmp = now->data;
-			acts->rb = i - 1;
+			b_acts->b[0] = i - 1;
 		}
 		now = now->next;
 	}
@@ -121,18 +145,17 @@ void	choose_best_actions(t_datas *datas)
 {
 	t_list			*a_stack;
 	t_node			*now;
-	t_best_actions	*acts;
+	t_best_actions	*b_acts;
 	int				cnt;
 
 	a_stack = datas->a_stack;
 	now = a_stack->head->next;
-	acts = datas->acts;
+	b_acts = datas->b_acts;
 	cnt = -1;
 	set_min_value(datas, datas->b_stack);
 	while (++cnt < a_stack->count)
 	{
-		acts->ra = cnt;
-		acts->rra = a_stack->count - cnt;
+		b_acts->a[0] = cnt;
 		choose_best_actions_sub(datas, now->data);
 		now = now->next;
 	}
@@ -163,7 +186,6 @@ Function Explanation (insertion_sort)
 
 void	insertion_sort(t_datas *datas)
 {
-	set_max_array(datas, datas->a_stack);
 	pb(datas);
 	pb(datas);
 	choose_best_actions(datas);

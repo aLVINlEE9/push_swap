@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/15 20:32:12 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 18:38:05 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# define TRUE 1
-# define FALSE 0
+
+typedef enum e_action {
+	RA_RB = 0,
+	RA_RRB,
+	RRA_RB,
+	RRA_RRB
+}	t_act;
 
 typedef struct s_node{
 	int				data;
@@ -30,30 +35,41 @@ typedef struct s_node{
 typedef struct s_list{
 	int		count;
 	int		min;
-	int		max[3];
+	int		max;
 	t_node	*head;
 	t_node	*tail;
 }	t_list;
 
+/*
+	a[0] == ra;
+	a[1] == rra;
+	b[0] == rb;
+	b[1] == rrb;
+*/
+
 typedef struct s_best_actions{
-	int	ra;
-	int	rb;
-	int	rra;
-	int	rrb;
+	int	a[2];
+	int	b[2];
+	int	tmp;
 }	t_best_actions;
 
+/*
+	a[0] == ra;
+	a[1] == rra;
+	b[0] == rb;
+	b[1] == rrb;
+	r[0] == rr;
+	r[1] == rrr;
+*/
 typedef struct s_execute_actions{
-	int	ra;
-	int	rb;
-	int	rr;
-	int	rra;
-	int	rrb;
-	int	rrr;
+	int	a[2];
+	int	b[2];
+	int	r[2];
 	int	count;
 }	t_excute_actions;
 
 typedef struct s_datas{
-	t_best_actions		*acts;
+	t_best_actions		*b_acts;
 	t_excute_actions	*exe_acts;
 	t_list				*a_stack;
 	t_list				*b_stack;
@@ -106,8 +122,9 @@ void		sorting_algorithm(t_datas *datas);
 
 void		sort_2(t_datas *datas);
 void		sort_3(t_datas *datas);
-void		set_max_array(t_datas *datas, t_list *stack);
-int			get_max_value(t_list *stack, int threshold);
+void		set_max_value(t_datas *datas, t_list *stack);
 void		set_min_value(t_datas *datas, t_list *stack);
+
+void		merge_best_actions_sub(t_datas *datas, int a, int b);
 
 #endif

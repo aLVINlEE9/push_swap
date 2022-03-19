@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:04:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 19:03:08 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:29:31 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	init_datas(t_datas *datas)
 {
-	datas->b_acts->a[0] = -1;
-	datas->b_acts->a[1] = -1;
-	datas->b_acts->b[0] = -1;
-	datas->b_acts->b[1] = -1;
-	datas->exe_acts->a[0] = -1;
-	datas->exe_acts->a[1] = -1;
-	datas->exe_acts->b[0] = -1;
-	datas->exe_acts->b[1] = -1;
-	datas->exe_acts->r[0] = -1;
-	datas->exe_acts->r[1] = -1;
-	datas->exe_acts->count = INT_MAX;
+	datas->b_acts.a[0] = -1;
+	datas->b_acts.a[1] = -1;
+	datas->b_acts.b[0] = -1;
+	datas->b_acts.b[1] = -1;
+	datas->exe_acts.a[0] = -1;
+	datas->exe_acts.a[1] = -1;
+	datas->exe_acts.b[0] = -1;
+	datas->exe_acts.b[1] = -1;
+	datas->exe_acts.r[0] = -1;
+	datas->exe_acts.r[1] = -1;
+	datas->exe_acts.count = INT_MAX;
 }
 
 void	parsing(t_datas *datas, int argc, char **argv)

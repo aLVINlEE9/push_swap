@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 20:14:31 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:24:38 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ typedef struct s_execute_actions{
 }	t_exe_acts;
 
 typedef struct s_datas{
-	t_best_actions		*b_acts;
-	t_exe_acts			*exe_acts;
+	t_best_actions		b_acts;
+	t_exe_acts			exe_acts;
 	t_list				*a_stack;
 	t_list				*b_stack;
 }	t_datas;

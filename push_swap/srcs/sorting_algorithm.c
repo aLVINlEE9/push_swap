@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:07:59 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 20:13:38 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 21:29:31 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 void	merge_best_actions(t_datas *datas)
 {
-	t_best_actions		*b_acts;
 	t_list				*a_stack;
 	t_list				*b_stack;
 
-	b_acts = datas->b_acts;
 	a_stack = datas->a_stack;
 	b_stack = datas->b_stack;
-	b_acts->a[1] = b_acts->a[0] - a_stack->count;
-	b_acts->b[1] = b_acts->b[0] - b_stack->count;
+	datas->b_acts.a[1] = a_stack->count - datas->b_acts.a[0];
+	datas->b_acts.b[1] = b_stack->count - datas->b_acts.b[0];
 	merge_best_actions_sub(datas, 0, 0);
 	merge_best_actions_sub(datas, 0, 1);
 	merge_best_actions_sub(datas, 1, 0);
@@ -91,12 +89,10 @@ Function Explanation (choose_best_actinos)
 void	choose_best_actions_sub(t_datas *datas, int data)
 {
 	t_node			*now;
-	t_best_actions	*b_acts;
 	int				tmp;
 	int				i;
 
 	now = datas->b_stack->head->next;
-	b_acts = datas->b_acts;
 	tmp = INT_MIN;
 	i = 0;
 	while (now != datas->b_stack->tail && ++i)
@@ -104,12 +100,12 @@ void	choose_best_actions_sub(t_datas *datas, int data)
 		if (datas->b_stack->min > data && now->data >= tmp)
 		{
 			tmp = now->data;
-			b_acts->b[0] = i - 1;
+			datas->b_acts.b[0] = i - 1;
 		}
 		if (datas->b_stack->min < data && now->data >= tmp && now->data < data)
 		{
 			tmp = now->data;
-			b_acts->b[0] = i - 1;
+			datas->b_acts.b[0] = i - 1;
 		}
 		now = now->next;
 	}
@@ -144,17 +140,15 @@ void	choose_best_actions(t_datas *datas)
 {
 	t_list			*a_stack;
 	t_node			*now;
-	t_best_actions	*b_acts;
 	int				cnt;
 
 	a_stack = datas->a_stack;
 	now = a_stack->head->next;
-	b_acts = datas->b_acts;
 	cnt = -1;
 	set_min_value(datas->b_stack);
 	while (++cnt < a_stack->count)
 	{
-		b_acts->a[0] = cnt;
+		datas->b_acts.a[0] = cnt;
 		choose_best_actions_sub(datas, now->data);
 		now = now->next;
 	}
@@ -194,8 +188,8 @@ void	insertion_sort(t_datas *datas)
 		init_datas(datas);
 		choose_best_actions(datas);
 		exe_best_actions(datas);
+		action_exe(datas, "pb", 1);
 	}
-	print_node(datas->b_stack);
 }
 
 /*
@@ -223,4 +217,7 @@ void	sorting_algorithm(t_datas *datas)
 		sort_3(datas);
 	else if (a_stack->count > 3)
 		insertion_sort(datas);
+	print_node(datas->a_stack);
+	printf("\\\\\\\\\\\\\\\\");
+	print_node(datas->b_stack);
 }

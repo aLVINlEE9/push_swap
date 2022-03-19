@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 19:22:45 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 20:07:00 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 21:39:08 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ void	print_action(char *action, int cnt)
 
 void	action_exe(t_datas *datas, char *action, int cnt)
 {
-	if (ft_strncmp(action, "ra", 2) == 0)
+	if (ft_strncmp(action, "ra", 3) == 0)
 		ra(datas, cnt);
-	else if (ft_strncmp(action, "rb", 2) == 0)
+	else if (ft_strncmp(action, "rb", 3) == 0)
 		rb(datas, cnt);
-	else if (ft_strncmp(action, "rr", 2) == 0)
+	else if (ft_strncmp(action, "rr", 3) == 0)
 		rr(datas, cnt);
 	else if (ft_strncmp(action, "rra", 3) == 0)
 		rra(datas, cnt);
@@ -68,34 +68,34 @@ void	action_exe(t_datas *datas, char *action, int cnt)
 		rrb(datas, cnt);
 	else if (ft_strncmp(action, "rrr", 3) == 0)
 		rrr(datas, cnt);
-	else if (ft_strncmp(action, "pa", 2) == 0)
+	else if (ft_strncmp(action, "pa", 3) == 0)
 		pa(datas, cnt);
-	else if (ft_strncmp(action, "pb", 2) == 0)
+	else if (ft_strncmp(action, "pb", 3) == 0)
 		pb(datas, cnt);
-	else if (ft_strncmp(action, "sa", 2) == 0)
+	else if (ft_strncmp(action, "sa", 3) == 0)
 		sa(datas, cnt);
-	else if (ft_strncmp(action, "sb", 2) == 0)
+	else if (ft_strncmp(action, "sb", 3) == 0)
 		sb(datas, cnt);
-	else if (ft_strncmp(action, "ss", 2) == 0)
+	else if (ft_strncmp(action, "ss", 3) == 0)
 		ss(datas, cnt);
 	print_action(action, cnt);
 }
 
 void	exe_best_actions(t_datas *datas)
 {
-	t_exe_acts	*exe_acts;
+	t_exe_acts	exe_acts;
 
 	exe_acts = datas->exe_acts;
-	if (exe_acts->a[0] != -1)
-		action_exe(datas, "ra", exe_acts->a[0]);
-	if (exe_acts->a[1] != -1)
-		action_exe(datas, "rra", exe_acts->a[1]);
-	if (exe_acts->a[1] != -1)
-		action_exe(datas, "rb", exe_acts->b[0]);
-	if (exe_acts->a[1] != -1)
-		action_exe(datas, "rrb", exe_acts->b[1]);
-	if (exe_acts->a[1] != -1)
-		action_exe(datas, "rr", exe_acts->r[0]);
-	if (exe_acts->a[1] != -1)
-		action_exe(datas, "rrr", exe_acts->r[1]);
+	if (exe_acts.a[0] != -1)
+		action_exe(datas, "ra", exe_acts.a[0]);
+	if (exe_acts.a[1] != -1)
+		action_exe(datas, "rra", exe_acts.a[1]);
+	if (exe_acts.b[0] != -1)
+		action_exe(datas, "rb", exe_acts.b[0]);
+	if (exe_acts.b[1] != -1)
+		action_exe(datas, "rrb", exe_acts.b[1]);
+	if (exe_acts.r[0] != -1)
+		action_exe(datas, "rr", exe_acts.r[0]);
+	if (exe_acts.r[1] != -1)
+		action_exe(datas, "rrr", exe_acts.r[1]);
 }

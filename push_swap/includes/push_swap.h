@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 19:48:57 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:03:13 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-
-typedef enum e_action {
-	RA_RB = 0,
-	RA_RRB,
-	RRA_RB,
-	RRA_RRB
-}	t_act;
 
 typedef struct s_node{
 	int				data;

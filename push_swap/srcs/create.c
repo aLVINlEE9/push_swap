@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:31:52 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/15 12:24:59 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:03:42 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	init_stack(t_list *stack)
 {
 	stack->count = 0;
-	stack->max[0] = 0;
-	stack->max[1] = 0;
-	stack->max[2] = 0;
+	stack->max = 0;
 	stack->min = 0;
 }
 

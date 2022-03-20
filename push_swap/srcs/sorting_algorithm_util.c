@@ -6,78 +6,40 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:32:35 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 20:58:28 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/19 23:38:10 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	init_best_actions(t_datas *datas)
+int	isin_max(t_list *stack, int data)
 {
-	datas->b_acts.a[0] = -1;
-	datas->b_acts.b[0] = -1;
-	datas->b_acts.a[1] = -1;
-	datas->b_acts.b[1] = -1;
+	if (stack->max[0] == data || stack->max[1] == data || stack->max[2] == data)
+		return (1);
+	return (0);
 }
 
-void	init_execute_actions(t_datas *datas)
+int	get_max_value(t_list *stack, int threshold)
 {
-	datas->exe_acts.a[0] = -1;
-	datas->exe_acts.a[1] = -1;
-	datas->exe_acts.b[0] = -1;
-	datas->exe_acts.b[1] = -1;
-	datas->exe_acts.r[0] = -1;
-	datas->exe_acts.r[1] = -1;
+	t_node	*now;
+	int		tmp;
+
+	now = stack->head->next;
+	tmp = INT_MIN;
+	while (now != stack->tail)
+	{
+		if (tmp < now->data && now->data < threshold)
+			tmp = now->data;
+		now = now->next;
+	}
+	return (tmp);
 }
 
-void	set_execute_actions(t_datas *datas, t_exe_acts *exe_acts, int a, int b)
+void	set_max_array(t_list *stack)
 {
-	int					a_val;
-	int					b_val;
-
-	a_val = datas->b_acts.a[a];
-	b_val = datas->b_acts.b[b];
-	if (a_val > b_val && exe_acts->count > a_val)
-	{
-		init_execute_actions(datas);
-		exe_acts->count = a_val;
-		exe_acts->r[a] = b_val;
-		exe_acts->a[a] = a_val - b_val;
-	}
-	else if (a_val < b_val && exe_acts->count > b_val)
-	{
-		init_execute_actions(datas);
-		exe_acts->count = b_val;
-		exe_acts->r[a] = a_val;
-		exe_acts->b[a] = b_val - a_val;
-	}
-	else if (a_val == b_val && exe_acts->count > a_val)
-	{
-		init_execute_actions(datas);
-		exe_acts->count = a_val;
-		exe_acts->r[a] = a_val;
-	}
-}
-
-void	merge_best_actions_sub(t_datas *datas, int a, int b)
-{
-	int					a_val;
-	int					b_val;
-
-	a_val = datas->b_acts.a[a];
-	b_val = datas->b_acts.b[b];
-	if (!a ^ b)
-		set_execute_actions(datas, &(datas->exe_acts), a, b);
-	else if (a ^ b)
-	{
-		if (datas->exe_acts.count > a_val + b_val)
-		{
-			init_execute_actions(datas);
-			datas->exe_acts.count = a_val + b_val;
-			datas->exe_acts.a[a] = a_val;
-			datas->exe_acts.b[b] = b_val;
-		}
-	}
+	stack->max[0] = get_max_value(stack, INT_MAX);
+	stack->max[1] = get_max_value(stack, stack->max[0]);
+	stack->max[2] = get_max_value(stack, stack->max[1]);
 }
 
 void	set_min_value(t_list *stack)

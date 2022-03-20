@@ -6,11 +6,11 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/06 17:48:47 by seungsle          #+#    #+#              #
-#    Updated: 2022/03/19 20:06:27 by seungsle         ###   ########.fr        #
+#    Updated: 2022/03/20 00:12:34 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= pushswap
+NAME	= push_swap
 CC		= gcc -g
 CFLAG	= -Werror -Wall -Wextra
 SRCS 	=	srcs/action_exe.c				\
@@ -22,6 +22,8 @@ SRCS 	=	srcs/action_exe.c				\
 			srcs/create.c					\
 			srcs/exception.c				\
 			srcs/free.c						\
+			srcs/insertion_sort_util.c		\
+			srcs/insertion_sort.c			\
 			srcs/node.c						\
 			srcs/parsing_util.c				\
 			srcs/parsing.c					\

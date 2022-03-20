@@ -6,22 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 23:04:30 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 22:22:12 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/21 00:17:47 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-void	sort_left(t_datas *datas)
-{
-	t_list	*b_stack;
-	t_node	*now;
-
-	b_stack = datas->b_stack;
-	now = b_stack->head->next;
-	if (now->data < now->next->data)
-		action_exe(datas, "sb", 1, 1);
-}
 
 void	init_best_actions(t_datas *datas)
 {
@@ -69,6 +58,21 @@ void	set_execute_actions(t_datas *datas, t_exe_acts *exe_acts, int a, int b)
 		exe_acts->r[a] = a_val;
 	}
 }
+
+/*
+Function Explanation (merge_best_actions_sub)
+	
+	1. if (!a ^ b) : this condition means input actions are 
+		(ra, rb) or (rra, rrb)
+
+		a. set_execute_actions() : this function is gonna calculate
+			most efficient way
+	
+	2. else : this condition means input actions are
+		(ra, rrb) or (rra, rb)
+
+		a. calculate most efficient way
+*/
 
 void	merge_best_actions_sub(t_datas *datas, int a, int b)
 {

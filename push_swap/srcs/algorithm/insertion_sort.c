@@ -6,11 +6,22 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:11:23 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 22:25:25 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/21 00:10:52 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+/*
+Function Explanation (merge_best_actions)
+
+	1. calculate rra, rrb
+	2. merge_best_actions_sub() 
+		parameter : (datas, 0, 0) => ra, rb
+					(datas, 0, 1) => ra, rrb
+					(datas, 1, 0) => rra, rb
+					(datas, 1, 1) => rra, rrb
+*/
 
 void	merge_best_actions(t_datas *datas)
 {
@@ -38,7 +49,7 @@ Function Explanation (choose_best_actinos)
 	
 					{`B_STACK->MIN` > `DATA`} : If this condition is true, 
 					It means the `DATA` from a_stack is minimum value 
-					compare with b_stack
+					compare with all b_stack numbers
 					-> It just need to sort descending order
 					{now->data >= tmp} : just sort b_stack descending order
 					
@@ -47,8 +58,8 @@ Function Explanation (choose_best_actinos)
 						from top of b_stack
 					
 					{`B_STACK->MIN` < `DATA`} : If this condition is true,
-					It means there's value that is less than `DATA` from a_stack
-					-> It need to find the number that is less than `DATA` but 
+					It means there's value in b_stack that is less than `DATA` 
+					-> Need to find the number that is less than `DATA` but 
 					biggest number of them
 					{now->data >= tmp} : This condition is to find biggest number
 					{now->data < `DATA`} : This condition is to limit the biggest
@@ -116,8 +127,8 @@ void	choose_best_actions_sub(t_datas *datas, int data)
 Function Explanation (choose_best_actinos)
 
 	1. set_min_value : get min number in b_stack (It will be 2)
-	2. while -> count all command(ra, rra) to each all numbers in a_stack 
-		that makes to top for PB
+	2. while -> count all command(ra, rra) for each numbers in a_stack 
+		that makes to be top which is gonna pb.
 
 		-------------------------
 		|			|			|
@@ -129,17 +140,13 @@ Function Explanation (choose_best_actinos)
 		|	a_stack	|	b_stack	|
 		--------------------------
 
-		(if now->data is 7 then RA is gonna be 0 times, also RRA is gonna be 3 times)
+		(if now->data is 7 then RA is gonna be 0 times, but RRA is gonna be 3 times)
 		
 		a. save RA RRA count temporary in t_best_actions struct
 
 		b. choose_best_actions_sub : count command(rb, rrb) from b_stack
 */
-// 66
-// rrb 34
 
-// 22
-// rb 23
 void	choose_best_actions(t_datas *datas)
 {
 	t_list			*a_stack;
@@ -161,8 +168,7 @@ void	choose_best_actions(t_datas *datas)
 /*
 Function Explanation (insertion_sort)
 
-	1. set_max_array : get 3 max numbers in a_stack
-	2. PB 2 times : move two top numbers(9, 2) in a_stack to b_stack
+	1. PB 2 times : move two top numbers(9, 2) in a_stack to b_stack
 
 		-------------------------
 		|			|			|
@@ -174,11 +180,19 @@ Function Explanation (insertion_sort)
 		|	a_stack	|	b_stack	|
 		--------------------------
 
-	3. choose_best_actions : best actions make least time complexity
+	2. while -> (condition : until a_stack->count is 0)
+				a. init_datas : initialize variables
+				b. choose_best_actions : choosing best actions that makes least time
+					complexity
+				c. exe_best_actions : after choose_best_actions() exe_acts struct
+					is gonna fill with best actions. exe_best_actions() is gonna 
+					execute actions which was in exe_acts struct.
+				d. action_exe(datas, "pb", 1, 1) : when actions are done. execute
+					pb.
 	
 	(If RA is like 3 times and RB is like 4 times, it's totally 7 times but
 	if you use this function then it merge commands effiectly and the result
-	will be totally 4 times(better than 7) cause {RA 3 RB 3} -> RR 3, RB 1)
+	will be totally 4 times(better than 7) cause, {RA 3 RB 3} -> RR 3, RB 1)
 */
 
 void	insertion_sort(t_datas *datas)

@@ -6,14 +6,12 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 22:21:31 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 22:43:32 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
-# include <stdio.h>
 
 # include <stdlib.h>
 # include <unistd.h>

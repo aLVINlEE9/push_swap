@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action_rr.c                                        :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/06 22:20:13 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 19:37:27 by seungsle         ###   ########.fr       */
+/*   Created: 2022/03/05 21:52:46 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/20 18:30:12 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	rra(t_datas *datas, int cnt)
+int	free_list(t_list *stack)
 {
-	t_list	*a_stack;
-	int		i;
+	t_node	*now;
+	t_node	*tmp;
 
-	a_stack = datas->a_stack;
-	i = -1;
-	while (++i < cnt)
-		reverse_rotate(a_stack);
+	now = stack->head;
+	while (now != NULL)
+	{
+		tmp = now;
+		free(tmp);
+		now = now->next;
+	}
+	free(stack);
+	return (1);
 }
 
-void	rrb(t_datas *datas, int cnt)
+int	free_stack(t_list *stack)
 {
-	t_list	*b_stack;
-	int		i;
-
-	b_stack = datas->b_stack;
-	i = -1;
-	while (++i < cnt)
-		reverse_rotate(b_stack);
+	free(stack);
+	return (1);
 }
 
-void	rrr(t_datas *datas, int cnt)
+int	free_node(t_node *node)
 {
-	rra(datas, cnt);
-	rrb(datas, cnt);
+	free(node);
+	return (1);
 }

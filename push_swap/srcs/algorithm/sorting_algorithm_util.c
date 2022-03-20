@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:32:35 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 23:38:10 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 18:31:04 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	isin_max(t_list *stack, int data)
 {

@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:07:59 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 16:08:59 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 18:31:09 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 /*
 There's two stack in this sorting algorithm

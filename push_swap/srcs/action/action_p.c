@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action_r.c                                         :+:      :+:    :+:   */
+/*   action_p.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/06 20:34:22 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 19:36:22 by seungsle         ###   ########.fr       */
+/*   Created: 2022/03/06 22:25:24 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/20 18:27:59 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ra(t_datas *datas, int cnt)
+void	pa(t_datas *datas, int cnt)
 {
 	t_list	*a_stack;
-	int		i;
-
-	a_stack = datas->a_stack;
-	i = -1;
-	while (++i < cnt)
-		rotate(a_stack);
-}
-
-void	rb(t_datas *datas, int cnt)
-{
 	t_list	*b_stack;
 	int		i;
 
+	a_stack = datas->a_stack;
 	b_stack = datas->b_stack;
 	i = -1;
-	while (++i < cnt)
-		rotate(b_stack);
+	if (b_stack->count != 0)
+		while (++i < cnt)
+			push_pop(a_stack, b_stack);
 }
 
-void	rr(t_datas *datas, int cnt)
+void	pb(t_datas *datas, int cnt)
 {
-	ra(datas, cnt);
-	rb(datas, cnt);
+	t_list	*a_stack;
+	t_list	*b_stack;
+	int		i;
+
+	a_stack = datas->a_stack;
+	b_stack = datas->b_stack;
+	i = -1;
+	if (a_stack->count != 0)
+		while (++i < cnt)
+			push_pop(b_stack, a_stack);
 }

@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 19:22:45 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 21:39:08 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 18:27:55 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 size_t	ft_strlen(const char *s)
 {

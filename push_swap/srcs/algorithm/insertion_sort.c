@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:11:23 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 17:31:08 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 18:30:53 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	merge_best_actions(t_datas *datas)
 {

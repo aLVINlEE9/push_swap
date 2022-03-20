@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:04:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 17:28:24 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 18:30:28 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	init_datas(t_datas *datas)
 {

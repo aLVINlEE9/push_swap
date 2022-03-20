@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:10:21 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/15 12:25:58 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 18:30:07 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	exception_print(char *str)
 {

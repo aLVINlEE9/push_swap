@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 18:56:46 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 16:07:07 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 18:30:57 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	sort_2(t_datas *datas)
 {

@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 22:03:04 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/19 19:23:09 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 18:28:18 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	rotate(t_list *stack)
 {

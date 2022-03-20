@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 16:16:52 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 19:24:31 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+
+# define BUFFER_SIZE 32
 
 typedef struct s_node{
 	int				data;
@@ -137,4 +139,12 @@ void		sorting_algorithm(t_datas *datas);
 
 void		insertion_sort_sub(t_datas *datas);
 void		sort_left(t_datas *datas);
+
+int			get_next_line(int fd, char **line, int read_size);
+size_t		ft_strlen(const char *s);
+char		*ft_strjoin(char const *s1, char const *s2);
+void		*ft_memmove(void *dst, const void *src, size_t num);
+
+void		checker(t_datas *datas);
+int			is_sort(t_list *a_stack);
 #endif

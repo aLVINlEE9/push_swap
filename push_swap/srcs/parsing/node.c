@@ -6,11 +6,11 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 22:58:23 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/15 14:04:56 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 18:30:16 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	append_node_sub(t_list *stack, t_node *new_node)
 {

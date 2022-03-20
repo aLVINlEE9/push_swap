@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:11:23 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 15:52:11 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 17:31:08 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,11 @@ Function Explanation (choose_best_actinos)
 
 		b. choose_best_actions_sub : count command(rb, rrb) from b_stack
 */
+// 66
+// rrb 34
 
+// 22
+// rb 23
 void	choose_best_actions(t_datas *datas)
 {
 	t_list			*a_stack;
@@ -148,11 +152,6 @@ void	choose_best_actions(t_datas *datas)
 	set_min_value(datas->b_stack);
 	while (++cnt < a_stack->count)
 	{
-		if (isin_max(a_stack, now->data))
-		{
-			now = now->next;
-			continue ;
-		}
 		datas->b_acts.a[0] = cnt;
 		choose_best_actions_sub(datas, now->data);
 		now = now->next;
@@ -184,34 +183,19 @@ Function Explanation (insertion_sort)
 
 void	insertion_sort(t_datas *datas)
 {
-	t_node	*now;
-	int		cnt;
+	t_list	*a_stack;
 
-	cnt = 0;
-	while (cnt < 2)
-	{
-		now = datas->a_stack->head->next;
-		if (isin_max(datas->a_stack, now->data))
-			action_exe(datas, "ra", 1);
-		else
-		{
-			action_exe(datas, "pb", 1);
-			cnt++;
-		}
-	}
-	while (datas->a_stack->count > 3)
+	a_stack = datas->a_stack;
+	action_exe(datas, "pb", 2);
+	while (a_stack->count)
 	{
 		init_datas(datas);
 		choose_best_actions(datas);
 		exe_best_actions(datas);
 		action_exe(datas, "pb", 1);
 	}
-	print_node(datas->a_stack);
-	insertion_sort_sub(datas);
-}
-
-void	insertion_sort_sub(t_datas *datas)
-{
-	sort_3(datas);
+	init_datas(datas);
+	choose_best_actions_sub(datas, INT_MIN);
+	exe_best_actions(datas);
 	action_exe(datas, "pa", datas->b_stack->count);
 }

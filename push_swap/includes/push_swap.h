@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 01:21:09 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 16:16:52 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,5 @@ void		insertion_sort(t_datas *datas);
 void		sorting_algorithm(t_datas *datas);
 
 void		insertion_sort_sub(t_datas *datas);
-void		pb_2(t_datas *datas, t_list *a_stack, t_node *now);
-
+void		sort_left(t_datas *datas);
 #endif

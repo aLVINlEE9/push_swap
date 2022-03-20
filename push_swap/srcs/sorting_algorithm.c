@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:07:59 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 01:44:13 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 16:08:59 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	sorting_algorithm(t_datas *datas)
 		sort_3(datas);
 	else if (a_stack->count > 3)
 		insertion_sort(datas);
-	print_node(a_stack);
 	free_list(datas->a_stack);
 	free_list(datas->b_stack);
 }

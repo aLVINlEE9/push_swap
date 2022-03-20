@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 14:30:02 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 19:31:36 by seungsle         ###   ########.fr       */
+/*   Created: 2021/06/04 14:29:14 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/20 22:17:20 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_1 = ft_strlen(s1);
 	size_2 = ft_strlen(s2);
 	ret = (char *)malloc(sizeof(char) * (size_1 + size_2 + 1));
-	if (ret == NULL)
+	if (!ret)
 		return (NULL);
 	ft_memmove(ret, s1, size_1);
 	ft_memmove(ret + size_1, s2, size_2);

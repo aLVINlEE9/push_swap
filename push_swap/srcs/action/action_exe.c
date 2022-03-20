@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 19:22:45 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 18:27:55 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 22:22:37 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (*s++)
+	if (!s)
+		return (0);
+	while (s[i])
 		i++;
 	return (i);
 }
@@ -54,7 +56,7 @@ void	print_action(char *action, int cnt)
 	}
 }
 
-void	action_exe(t_datas *datas, char *action, int cnt)
+void	action_exe(t_datas *datas, char *action, int cnt, int print)
 {
 	if (ft_strncmp(action, "ra", 3) == 0)
 		ra(datas, cnt);
@@ -78,7 +80,8 @@ void	action_exe(t_datas *datas, char *action, int cnt)
 		sb(datas, cnt);
 	else if (ft_strncmp(action, "ss", 3) == 0)
 		ss(datas, cnt);
-	print_action(action, cnt);
+	if (print)
+		print_action(action, cnt);
 }
 
 void	exe_best_actions(t_datas *datas)
@@ -87,15 +90,15 @@ void	exe_best_actions(t_datas *datas)
 
 	exe_acts = datas->exe_acts;
 	if (exe_acts.a[0] != -1)
-		action_exe(datas, "ra", exe_acts.a[0]);
+		action_exe(datas, "ra", exe_acts.a[0], 1);
 	if (exe_acts.a[1] != -1)
-		action_exe(datas, "rra", exe_acts.a[1]);
+		action_exe(datas, "rra", exe_acts.a[1], 1);
 	if (exe_acts.b[0] != -1)
-		action_exe(datas, "rb", exe_acts.b[0]);
+		action_exe(datas, "rb", exe_acts.b[0], 1);
 	if (exe_acts.b[1] != -1)
-		action_exe(datas, "rrb", exe_acts.b[1]);
+		action_exe(datas, "rrb", exe_acts.b[1], 1);
 	if (exe_acts.r[0] != -1)
-		action_exe(datas, "rr", exe_acts.r[0]);
+		action_exe(datas, "rr", exe_acts.r[0], 1);
 	if (exe_acts.r[1] != -1)
-		action_exe(datas, "rrr", exe_acts.r[1]);
+		action_exe(datas, "rrr", exe_acts.r[1], 1);
 }

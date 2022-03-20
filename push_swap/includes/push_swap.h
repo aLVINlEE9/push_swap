@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 19:24:31 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 22:21:31 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <string.h>
 
 # define BUFFER_SIZE 32
 
@@ -72,7 +73,7 @@ typedef struct s_datas{
 size_t		ft_strlen(const char *s);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		print_action(char *action, int cnt);
-void		action_exe(t_datas *datas, char *action, int cnt);
+void		action_exe(t_datas *datas, char *action, int cnt, int print);
 void		exe_best_actions(t_datas *datas);
 
 void		pa(t_datas *datas, int cnt);

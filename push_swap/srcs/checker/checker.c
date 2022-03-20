@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 18:14:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 21:28:22 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 22:23:44 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ void	checker(t_datas *datas)
 {
 	char	*line;
 
+	line = NULL;
 	while (get_next_line(0, &line, 1) > 0)
 	{
-		action_exe(datas, line, 1);
+		action_exe(datas, line, 1, 0);
 		free(line);
 	}
 	free(line);

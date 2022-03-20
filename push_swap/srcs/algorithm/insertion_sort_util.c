@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 23:04:30 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 18:30:46 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/03/20 22:22:12 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	sort_left(t_datas *datas)
 	b_stack = datas->b_stack;
 	now = b_stack->head->next;
 	if (now->data < now->next->data)
-		action_exe(datas, "sb", 1);
+		action_exe(datas, "sb", 1, 1);
 }
 
 void	init_best_actions(t_datas *datas)

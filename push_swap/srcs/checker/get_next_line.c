@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 14:29:28 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 20:03:17 by seungsle         ###   ########.fr       */
+/*   Created: 2021/06/04 14:28:24 by seungsle          #+#    #+#             */
+/*   Updated: 2022/03/20 22:17:00 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	*get_line(char **backup)
 	while (temp_backup[i] && temp_backup[i] != '\n')
 		i++;
 	ret = (char *)malloc(sizeof(char) * (i + 1));
-	if (ret == NULL)
+	if (!ret)
 		return (NULL);
 	i = 0;
 	while (temp_backup[i] && temp_backup[i] != '\n')
@@ -71,7 +71,7 @@ static char	*get_backup(char **backup, int i, int j)
 		return (0);
 	}
 	ret = (char *)malloc(sizeof(char) * ((ft_strlen(*backup) - i) + 1));
-	if (ret == NULL)
+	if (!ret)
 		return (NULL);
 	i++;
 	while (temp_backup[i])
@@ -81,10 +81,6 @@ static char	*get_backup(char **backup, int i, int j)
 	return (ret);
 }
 
-/*
-read_size == 1(immutable)
-*/
-
 int	get_next_line(int fd, char **line, int read_size)
 {
 	static char	*backup[OPEN_MAX];
@@ -93,7 +89,7 @@ int	get_next_line(int fd, char **line, int read_size)
 	if (!line || BUFFER_SIZE <= 0 || (fd < 0 || fd >= OPEN_MAX))
 		return (-1);
 	buff = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (buff == NULL)
+	if (!buff)
 		return (-1);
 	while (verify_buff(&backup[fd]) == 0 && read_size != 0)
 	{

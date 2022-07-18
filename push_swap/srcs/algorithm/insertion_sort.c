@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:11:23 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/21 00:10:52 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/07/18 19:36:26 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,16 +200,22 @@ void	insertion_sort(t_datas *datas)
 	t_list	*a_stack;
 
 	a_stack = datas->a_stack;
-	action_exe(datas, "pb", 2, 1);
-	while (a_stack->count)
+	set_max_array(a_stack);
+	// action_exe(datas, "pb", 2, 1);
+	while (a_stack->count > 3)
 	{
+		pass_max_value(datas, a_stack);
+		action_exe(datas, "pb", 1, 1);
 		init_datas(datas);
 		choose_best_actions(datas);
 		exe_best_actions(datas);
-		action_exe(datas, "pb", 1, 1);
+		// action_exe(datas, "pb", 1, 1);
 	}
-	init_datas(datas);
-	choose_best_actions_sub(datas, INT_MIN);
-	exe_best_actions(datas);
+	// action_exe(datas, "pb", 1, 1);
+	// init_datas(datas);
+	// choose_best_actions_sub(datas, INT_MIN);
+	// exe_best_actions(datas);
+	sort_3(datas);
 	action_exe(datas, "pa", datas->b_stack->count, 1);
+	print_node(a_stack);
 }

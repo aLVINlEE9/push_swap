@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:04:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 18:30:28 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:42:54 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	init_datas(t_datas *datas)
 void	parsing(t_datas *datas, int argc, char **argv)
 {
 	if (argc == 1)
-		exit(exception_print("there is no input value"));
+		exit(1);
 	init_datas(datas);
 	create_stack(datas);
 	if (split_to_stack(argv, datas->a_stack, 1))

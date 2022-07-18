@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 22:43:32 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:43:42 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void		init_best_actions(t_datas *datas);
 void		init_execute_actions(t_datas *datas);
 void		set_execute_actions(t_datas *datas, t_exe_acts *exe, int a, int b);
 void		merge_best_actions_sub(t_datas *datas, int a, int b);
+void		pass_max_value(t_datas *datas, t_list *stack);
 
 void		append_node_sub(t_list *stack, t_node *new_node);
 int			append_node(t_list *a_stack, char *buf, size_t size);

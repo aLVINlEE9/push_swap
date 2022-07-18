@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:10:21 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 18:30:07 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:39:29 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,6 @@ int	exception_parsing_sort(t_list *a_stack)
 	int		i;
 	int		j;
 
-	if (check_sort(a_stack))
-		return (exception_print("input values are already sorted"));
 	now = a_stack->head->next;
 	i = -1;
 	while (++i < a_stack->count - 1)
@@ -97,5 +95,7 @@ int	exception_parsing_sort(t_list *a_stack)
 		}
 		now = now->next;
 	}
+	if (check_sort(a_stack))
+		exit(1);
 	return (0);
 }

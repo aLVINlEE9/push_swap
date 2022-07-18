@@ -7,7 +7,6 @@ NUM_OVER=0
 MAX=$LIMIT
 ARG=`jot -r $CNT -2147483648 2147483647 | tr "\n" " "`
 NUM=`./push_swap $ARG | wc -l`
-​
 while [ $INDEX -lt $ITER ]
 do
 echo "$INDEX	:	$NUM `./push_swap $ARG | ./checker $ARG`"

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 23:04:30 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/21 00:17:47 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/07/18 19:13:38 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,31 @@ void	merge_best_actions_sub(t_datas *datas, int a, int b)
 			datas->exe_acts.count = a_val + b_val;
 			datas->exe_acts.a[a] = a_val;
 			datas->exe_acts.b[b] = b_val;
+		}
+	}
+}
+
+#include <stdio.h>
+
+void	pass_max_value(t_datas *datas, t_list *stack)
+{
+	t_node	*now;
+	int		i;
+	int		j;
+
+	i = -1;
+	j = -1;
+	while (++i < 3)
+	{
+		j = -1;
+		while (++j < 3)
+		{
+			now = stack->head->next;
+			if (now->data == stack->max[j])
+			{
+				// printf("data: %d  max: %d\n", now->data, stack->max[j]);
+				action_exe(datas, "ra", 1, 1);
+			}
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 23:04:30 by seungsle          #+#    #+#             */
-/*   Updated: 2022/07/18 19:13:38 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:32:08 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,25 +97,40 @@ void	merge_best_actions_sub(t_datas *datas, int a, int b)
 
 #include <stdio.h>
 
-void	pass_max_value(t_datas *datas, t_list *stack)
+int		check_max(t_list *stack, int data)
 {
-	t_node	*now;
-	int		i;
-	int		j;
+	int	i;
 
 	i = -1;
-	j = -1;
 	while (++i < 3)
 	{
-		j = -1;
-		while (++j < 3)
+		if (stack->max[i] == data)
+			return (1);
+	}
+	return (0);
+}
+
+int		pass_max_value(t_datas *datas, t_list *stack)
+{
+	t_node	*now;
+	int		now_max;
+	int		next_max;
+
+	while (1)
+	{
+		now = stack->head->next;
+		now_max = 0;
+		if (check_max(stack, now->data))
 		{
-			now = stack->head->next;
-			if (now->data == stack->max[j])
-			{
-				// printf("data: %d  max: %d\n", now->data, stack->max[j]);
-				action_exe(datas, "ra", 1, 1);
-			}
+			now_max = 1;
+			next_max = 0;
+			if (check_max(stack, now->next->data))
+				next_max = 1;
+			action_exe(datas, "ra", 1, 1);
 		}
+		if (now_max && next_max)
+			continue ;
+		else
+			return (1);
 	}
 }

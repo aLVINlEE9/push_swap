@@ -1,5 +1,17 @@
-#ifndef INSERTION_SROT_H
-# define INSERTION_SROT_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   insertion_sort.h                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/16 18:49:16 by seungsle          #+#    #+#             */
+/*   Updated: 2022/09/16 18:53:22 by seungsle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef INSERTION_SORT_H
+# define INSERTION_SORT_H
 
 # include <stdlib.h>
 # include <unistd.h>

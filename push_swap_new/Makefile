@@ -6,14 +6,14 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 18:51:17 by seungsle          #+#    #+#              #
-#    Updated: 2022/09/16 18:51:18 by seungsle         ###   ########.fr        #
+#    Updated: 2022/09/17 15:19:24 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= gcc -g
 CFLAG	= -Werror -Wall -Wextra
 
-SORT_NAME = sort
+SORT_NAME = push_swap
 CHR_NAME = checker
 NAME	= $(SORT_NAME) $(CHR_NAME)
 

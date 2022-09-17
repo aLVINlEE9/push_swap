@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:11:23 by seungsle          #+#    #+#             */
-/*   Updated: 2022/07/19 17:08:04 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:37:42 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,28 +200,39 @@ Function Explanation (insertion_sort)
 	will be totally 4 times(better than 7) cause, {RA 3 RB 3} -> RR 3, RB 1)
 */
 
+#include <stdio.h>
 void	insertion_sort(t_datas *datas)
 {
 	t_list	*a_stack;
 
 	a_stack = datas->a_stack;
 	set_max_array(a_stack);
+	// while (cnt < 2)
+	// {
+	// 	if (pass_max_value(datas, a_stack))
+	// 	{
+	// 		action_exe(datas, "pb", 1, 1);
+	// 		cnt++;
+	// 	}
+	// }
 	while (a_stack->count > 3)
 	{
 		pass_max_value(datas, a_stack);
 		if (datas->b_stack->count < 2)
 		{
 			action_exe(datas, "pb", 1, 1);
-			continue ;
+			continue;
 		}
 		init_datas(datas);
 		choose_best_actions(datas);
 		exe_best_actions(datas);
 		action_exe(datas, "pb", 1, 1);
 	}
+	// action_exe(datas, "pb", 1, 1);
 	sort_3(datas);
 	init_datas(datas);
 	choose_best_actions_sub(datas, INT_MIN);
 	exe_best_actions(datas);
+	// action_exe(datas, "pb", 1, 1);
 	action_exe(datas, "pa", datas->b_stack->count, 1);
 }

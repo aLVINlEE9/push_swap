@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/09/17 16:12:19 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/17 16:41:03 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ int			pass_max_value(t_datas *datas, t_list *stack);
 void		append_node_sub(t_list *stack, t_node *new_node);
 int			append_node(t_list *a_stack, char *buf, size_t size);
 t_node		*create_node(int data);
-void		print_node(t_list *stack); // d
 
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 long long	ft_atol(const char *str);

@@ -6,7 +6,7 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/06 17:48:47 by seungsle          #+#    #+#              #
-#    Updated: 2022/03/20 19:27:09 by seungsle         ###   ########.fr        #
+#    Updated: 2022/09/17 16:38:28 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ PS_SRCS	=	srcs/action/action_exe.c				\
 			srcs/algorithm/simple_sort.c			\
 			srcs/algorithm/sorting_algorithm_util.c	\
 			srcs/algorithm/sorting_algorithm.c		\
-			srcs/algorithm/insertion_sort_util.c	\
+			srcs/algorithm/insertion_sort_util_1.c	\
+			srcs/algorithm/insertion_sort_util_2.c	\
 			srcs/algorithm/insertion_sort.c			\
 			srcs/parsing/create.c					\
 			srcs/parsing/exception.c				\

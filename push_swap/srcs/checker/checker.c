@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 18:14:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/09/17 15:56:41 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/17 16:39:48 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	is_sort(t_list *a_stack)
 {
-	t_node	*now;
-	long long		tmp;
+	t_node		*now;
+	long long	tmp;
 
 	tmp = (long long)INT_MIN - 1;
 	now = a_stack->head->next;

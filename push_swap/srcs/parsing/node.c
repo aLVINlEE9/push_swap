@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 22:58:23 by seungsle          #+#    #+#             */
-/*   Updated: 2022/07/18 19:26:08 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/17 16:40:29 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,4 @@ t_node	*create_node(int data)
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	return (new_node);
-}
-
-#include <stdio.h>
-
-void		print_node(t_list *stack)
-{
-	int i = 0;
-	t_node *now = stack->head->next;
-	
-	while (i < stack->count)
-	{
-		printf("%d\n", now->data);
-		now = now->next;
-		i++;
-	}
 }

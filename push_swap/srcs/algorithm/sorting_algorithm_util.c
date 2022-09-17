@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 16:32:35 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 18:31:04 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/17 16:09:46 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	isin_max(t_list *stack, int data)
 	return (0);
 }
 
-int	get_max_value(t_list *stack, int threshold)
+int	get_max_value(t_list *stack, long long threshold)
 {
 	t_node	*now;
 	int		tmp;
@@ -37,9 +37,9 @@ int	get_max_value(t_list *stack, int threshold)
 
 void	set_max_array(t_list *stack)
 {
-	stack->max[0] = get_max_value(stack, INT_MAX);
-	stack->max[1] = get_max_value(stack, stack->max[0]);
-	stack->max[2] = get_max_value(stack, stack->max[1]);
+	stack->max[0] = get_max_value(stack, (long long)INT_MAX + 1);
+	stack->max[1] = get_max_value(stack, (long long)stack->max[0]);
+	stack->max[2] = get_max_value(stack, (long long)stack->max[1]);
 }
 
 void	set_min_value(t_list *stack)

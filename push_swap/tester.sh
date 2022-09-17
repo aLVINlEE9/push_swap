@@ -1,4 +1,4 @@
-CNT=500
+CNT=100
 INDEX=0
 ITER=100
 SUM=0
@@ -7,7 +7,7 @@ ARG=`jot -r $CNT -2147483648 2147483647 | tr "\n" " "`
 NUM=`./push_swap $ARG | wc -l`
 while [ $INDEX -lt $ITER ]
 do
-echo "$INDEX	:	$NUM `./push_swap $ARG | ./checker $ARG`"
+echo "$INDEX	:	$NUM `./push_swap $ARG | ./checker_MAC $ARG`"
 SUM=`expr $SUM + $NUM`
 ARG=`jot -r $CNT -2147483648 2147483647 | tr "\n" " "`
 NUM=`./push_swap $ARG | wc -l`

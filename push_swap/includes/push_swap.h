@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/07/19 16:28:24 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/17 16:12:19 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ void		sort_2(t_datas *datas);
 void		sort_3(t_datas *datas);
 
 int			isin_max(t_list *stack, int data);
-int			get_max_value(t_list *stack, int threshold);
+int			get_max_value(t_list *stack, long long threshold);
 void		set_max_array(t_list *stack);
 void		set_min_value(t_list *stack);
 

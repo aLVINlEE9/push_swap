@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 18:14:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/09/17 16:39:48 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/19 20:29:46 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,23 @@ int	is_sort(t_list *a_stack)
 	return (1);
 }
 
+int	is_action(char *action)
+{
+	if (ft_strncmp(action, "sa", ft_strlen(action)) == 0 || \
+	ft_strncmp(action, "sb", ft_strlen(action)) == 0 || \
+	ft_strncmp(action, "ss", ft_strlen(action)) == 0 || \
+	ft_strncmp(action, "pa", ft_strlen(action)) == 0 || \
+	ft_strncmp(action, "pb", ft_strlen(action)) == 0 || \
+	ft_strncmp(action, "ra", ft_strlen(action)) == 0 || \
+	ft_strncmp(action, "rb", ft_strlen(action)) == 0 || \
+	ft_strncmp(action, "rr", ft_strlen(action)) == 0 || \
+	ft_strncmp(action, "rra", ft_strlen(action)) == 0 || \
+	ft_strncmp(action, "rrb", ft_strlen(action)) == 0 || \
+	ft_strncmp(action, "rrr", ft_strlen(action)) == 0)
+		return (1);
+	return (0);
+}
+
 void	checker(t_datas *datas)
 {
 	char	*line;
@@ -37,6 +54,11 @@ void	checker(t_datas *datas)
 	line = NULL;
 	while (get_next_line(0, &line, 1) > 0)
 	{
+		if (!is_action(line))
+		{
+			write(1, "[Exception Occurred : not allowed action]\n", 42);
+			return ;
+		}
 		action_exe(datas, line, 1, 0);
 		free(line);
 	}

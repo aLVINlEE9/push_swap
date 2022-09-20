@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:34:22 by seungsle          #+#    #+#             */
-/*   Updated: 2022/09/19 21:02:14 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:32:00 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,4 @@ void	rr(t_datas *datas, int cnt)
 		ra(datas, cnt);
 		rb(datas, cnt);
 	}
-	
 }

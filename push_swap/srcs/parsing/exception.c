@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:10:21 by seungsle          #+#    #+#             */
-/*   Updated: 2022/07/18 15:39:29 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:26:04 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	check_sort(t_list *stack)
 	return (1);
 }
 
-int	exception_parsing_sort(t_list *a_stack)
+int	exception_parsing_sort(t_list *a_stack, int is_checker)
 {
 	t_node	*now;
 	t_node	*tmp;
@@ -95,7 +95,7 @@ int	exception_parsing_sort(t_list *a_stack)
 		}
 		now = now->next;
 	}
-	if (check_sort(a_stack))
-		exit(1);
+	if (!is_checker && check_sort(a_stack))
+		return (1);
 	return (0);
 }

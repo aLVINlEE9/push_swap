@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 21:04:20 by seungsle          #+#    #+#             */
-/*   Updated: 2022/09/17 17:36:49 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:15:09 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	init_datas(t_datas *datas)
 	datas->exe_acts.count = INT_MAX;
 }
 
-void	parsing(t_datas *datas, int argc, char **argv)
+void	parsing(t_datas *datas, int argc, char **argv, int is_checker)
 {
 	if (argc == 1)
 		exit(1);
 	init_datas(datas);
 	create_stack(datas);
-	if (split_to_stack(argv, datas->a_stack, 1))
+	if (split_to_stack(argv, datas->a_stack, 1, is_checker))
 		exit(free_list(datas->a_stack) && free_list(datas->b_stack));
 }

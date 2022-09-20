@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 17:16:17 by seungsle          #+#    #+#             */
-/*   Updated: 2022/09/17 17:36:30 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:18:40 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int			exception_print(char *str);
 int			exception_parsing_string(char *buf);
 int			exception_parsing_number(long long buf);
 int			check_sort(t_list *stack);
-int			exception_parsing_sort(t_list *a_stack);
+int			exception_parsing_sort(t_list *a_stack, int is_checker);
 
 int			free_list(t_list *stack);
 int			free_stack(t_list *stack);
@@ -118,10 +118,10 @@ t_node		*create_node(int data);
 
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 long long	ft_atol(const char *str);
-int			split_to_stack(char **argv, t_list *Astack, int i);
+int			split_to_stack(char **argv, t_list *Astack, int i, int is_checker);
 
 void		init_datas(t_datas *datas);
-void		parsing(t_datas *datas, int argc, char **argv);
+void		parsing(t_datas *datas, int argc, char **argv, int is_checker);
 
 void		sort_2(t_datas *datas);
 void		sort_3(t_datas *datas);

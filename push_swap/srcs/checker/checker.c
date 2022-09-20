@@ -6,11 +6,12 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 18:14:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/09/19 20:29:46 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:27:34 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+#include <stdio.h>
 
 int	is_sort(t_list *a_stack)
 {
@@ -73,6 +74,6 @@ int	main(int argc, char **argv)
 {
 	t_datas	datas;
 
-	parsing(&datas, argc, argv);
+	parsing(&datas, argc, argv, 1);
 	checker(&datas);
 }

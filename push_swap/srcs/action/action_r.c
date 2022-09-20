@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:34:22 by seungsle          #+#    #+#             */
-/*   Updated: 2022/03/20 18:28:03 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/19 21:02:14 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ void	ra(t_datas *datas, int cnt)
 
 	a_stack = datas->a_stack;
 	i = -1;
-	while (++i < cnt)
-		rotate(a_stack);
+	if (a_stack->count != 0)
+		while (++i < cnt)
+			rotate(a_stack);
 }
 
 void	rb(t_datas *datas, int cnt)
@@ -30,12 +31,17 @@ void	rb(t_datas *datas, int cnt)
 
 	b_stack = datas->b_stack;
 	i = -1;
-	while (++i < cnt)
-		rotate(b_stack);
+	if (b_stack->count != 0)
+		while (++i < cnt)
+			rotate(b_stack);
 }
 
 void	rr(t_datas *datas, int cnt)
 {
-	ra(datas, cnt);
-	rb(datas, cnt);
+	if (datas->a_stack->count != 0 && datas->b_stack->count != 0)
+	{
+		ra(datas, cnt);
+		rb(datas, cnt);
+	}
+	
 }

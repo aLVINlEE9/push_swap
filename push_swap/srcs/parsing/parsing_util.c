@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 23:16:36 by seungsle          #+#    #+#             */
-/*   Updated: 2022/09/17 17:34:18 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:27:07 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ long long	ft_atol(const char *str)
 	return (ret);
 }
 
-int	split_to_stack(char **argv, t_list *Astack, int i)
+int	split_to_stack(char **argv, t_list *Astack, int i, int is_checker)
 {
 	char	*buf;
 	char	*s;
@@ -80,7 +80,7 @@ int	split_to_stack(char **argv, t_list *Astack, int i)
 		}
 		i++;
 	}
-	if (exception_parsing_sort(Astack))
+	if (exception_parsing_sort(Astack, is_checker))
 		return (1);
 	return (0);
 }

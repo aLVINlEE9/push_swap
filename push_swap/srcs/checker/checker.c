@@ -6,7 +6,7 @@
 /*   By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 18:14:18 by seungsle          #+#    #+#             */
-/*   Updated: 2022/09/30 13:55:39 by seungsle         ###   ########.fr       */
+/*   Updated: 2022/09/30 14:01:32 by seungsle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,17 @@ int	is_sort(t_list *a_stack)
 
 int	is_action(char *action)
 {
-	if (ft_strncmp(action, "sa", 2) == 0 || \
-	ft_strncmp(action, "sb", 2) == 0 || \
-	ft_strncmp(action, "ss", 2) == 0 || \
-	ft_strncmp(action, "pa", 2) == 0 || \
-	ft_strncmp(action, "pb", 2) == 0 || \
-	ft_strncmp(action, "ra", 2) == 0 || \
-	ft_strncmp(action, "rb", 2) == 0 || \
-	ft_strncmp(action, "rr", 2) == 0 || \
-	ft_strncmp(action, "rra", 3) == 0 || \
-	ft_strncmp(action, "rrb", 3) == 0 || \
-	ft_strncmp(action, "rrr", 3) == 0)
+	if ((ft_strncmp(action, "sa", 2) == 0 && ft_strlen(action) == 2) || \
+	(ft_strncmp(action, "sb", 2) == 0 && ft_strlen(action) == 2) || \
+	(ft_strncmp(action, "ss", 2) == 0 && ft_strlen(action) == 2) || \
+	(ft_strncmp(action, "pa", 2) == 0 && ft_strlen(action) == 2) || \
+	(ft_strncmp(action, "pb", 2) == 0 && ft_strlen(action) == 2) || \
+	(ft_strncmp(action, "ra", 2) == 0 && ft_strlen(action) == 2) || \
+	(ft_strncmp(action, "rb", 2) == 0 && ft_strlen(action) == 2) || \
+	(ft_strncmp(action, "rr", 2) == 0 && ft_strlen(action) == 2) || \
+	(ft_strncmp(action, "rra", 3) == 0 && ft_strlen(action) == 3) || \
+	(ft_strncmp(action, "rrb", 3) == 0 && ft_strlen(action) == 3) || \
+	(ft_strncmp(action, "rrr", 3) == 0 && ft_strlen(action) == 3))
 		return (1);
 	return (0);
 }

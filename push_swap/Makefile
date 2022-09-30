@@ -15,7 +15,11 @@ CFLAG	= -Werror -Wall -Wextra
 
 PS_NAME = push_swap
 CHR_NAME = checker
-NAME	= $(PS_NAME) $(CHR_NAME)
+NAME	:= $(PS_NAME)
+
+ifdef WITH_BONUS
+	NAME := $(CHR_NAME)
+endif
 
 PS_SRCS	=	srcs/action/action_exe.c				\
 			srcs/action/action_p.c					\
@@ -60,6 +64,9 @@ INCLUDE	= -I./includes/
 
 all : $(NAME)
 
+bonus :
+	@make WITH_BONUS=1 all
+
 $(PS_NAME) : $(PS_OBJS)
 	$(CC) $(CFLAG) $(PS_OBJS) $(INCLUDE) -o $(PS_NAME)
 	
@@ -73,7 +80,7 @@ clean :
 	rm -f $(PS_OBJS) $(CHR_OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+	rm -f $(PS_NAME) $(CHR_NAME)
 
 re : fclean all
 

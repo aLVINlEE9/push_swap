@@ -14,9 +14,8 @@
 
 int	exception_print(char *str)
 {
-	write(1, "[Exception Occurred : ", 22);
-	write(1, str, (int)ft_strlen(str));
-	write(1, "]", 1);
+	(void)str;
+	write(2, "Error\n", 6);
 	return (1);
 }
 

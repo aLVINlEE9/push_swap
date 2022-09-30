@@ -31,7 +31,6 @@ void	sorting_algorithm(t_datas *datas)
 	t_list	*a_stack;
 
 	a_stack = datas->a_stack;
-	set_max_array(a_stack);
 	if (a_stack->count == 2)
 		sort_2(datas);
 	else if (a_stack->count == 3)

@@ -56,8 +56,8 @@ void	checker(t_datas *datas)
 	{
 		if (!is_action(line))
 		{
-			write(1, "[Exception Occurred : not allowed action]\n", 42);
-			return ;
+			write(2, "Error\n", 6);
+			exit(1);
 		}
 		action_exe(datas, line, 1, 0);
 		free(line);
@@ -75,4 +75,5 @@ int	main(int argc, char **argv)
 
 	parsing(&datas, argc, argv, 1);
 	checker(&datas);
+	return (0);
 }

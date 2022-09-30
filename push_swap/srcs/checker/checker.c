@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-#include <stdio.h>
 
 int	is_sort(t_list *a_stack)
 {

@@ -6,11 +6,11 @@
 #    By: seungsle <seungsle@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/06 17:48:47 by seungsle          #+#    #+#              #
-#    Updated: 2022/09/17 16:38:28 by seungsle         ###   ########.fr        #
+#    Updated: 2022/10/02 14:35:14 by seungsle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		= gcc -g
+CC		= cc -g
 CFLAG	= -Werror -Wall -Wextra
 
 PS_NAME = push_swap
@@ -82,6 +82,8 @@ clean :
 fclean : clean
 	rm -f $(PS_NAME) $(CHR_NAME)
 
-re : fclean all
+re : 
+	make fclean
+	make all
 
 .PHONY: all clean fclean re
